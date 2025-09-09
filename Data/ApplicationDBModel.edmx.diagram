@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="4b2c8ae56a344c02aec275c87b87851c" Name="Diagram1" ZoomLevel="53">
+        <EntityTypeShape EntityType="tjoeGSTModel.GSTR2_Header" Width="1.5" PointX="20.5" PointY="0.5" />
+        <EntityTypeShape EntityType="tjoeGSTModel.TBL_PRD_USERS" Width="1.5" PointX="1" PointY="0.5" />
+        <EntityTypeShape EntityType="tjoeGSTModel.Purchase_datum" Width="1.5" PointX="1" PointY="11" />
+        <EntityTypeShape EntityType="tjoeGSTModel.GSTR2_Data" Width="1.5" PointX="8.5" PointY="11" />
+        <EntityTypeShape EntityType="tjoeGSTModel.Purchase_Ticket" Width="1.5" PointX="2.875" PointY="11" />
+        <EntityTypeShape EntityType="tjoeGSTModel.GST_State_Code" Width="1.5" PointX="2.875" PointY="0.625" />
+        <EntityTypeShape EntityType="tjoeGSTModel.AdminUser" Width="1.5" PointX="2.875" PointY="4.25" />
+        <EntityTypeShape EntityType="tjoeGSTModel.Admin_Clients" Width="1.5" PointX="4.75" PointY="0.625" />
+        <EntityTypeShape EntityType="tjoeGSTModel.GSTCompareData" Width="1.5" PointX="10.25" PointY="11" />
+        <EntityTypeShape EntityType="tjoeGSTModel.ModifiedData" Width="1.5" PointX="12.125" PointY="11" />
+        <EntityTypeShape EntityType="tjoeGSTModel.Sales_Ledger_datum" Width="1.5" PointX="0.75" PointY="19.375" />
+        <EntityTypeShape EntityType="tjoeGSTModel.Sales_Ledger_EInvoice" Width="1.5" PointX="9.875" PointY="19.375" />
+        <EntityTypeShape EntityType="tjoeGSTModel.Sales_Ledger_EWay_Bill" Width="1.5" PointX="6.125" PointY="19.375" />
+        <EntityTypeShape EntityType="tjoeGSTModel.Sales_Ledger_Ticket" Width="1.5" PointX="2.5" PointY="19.375" />
+        <EntityTypeShape EntityType="tjoeGSTModel.SLComparedData" Width="1.5" PointX="13.5" PointY="19.375" />
+        <EntityTypeShape EntityType="tjoeGSTModel.Client_Api_datum" Width="1.5" PointX="2.875" PointY="2.25" />
+        <EntityTypeShape EntityType="tjoeGSTModel.NoticeData" Width="1.5" PointX="0.625" PointY="26.875" />
+        <EntityTypeShape EntityType="tjoeGSTModel.NoticeChat" Width="1.5" PointX="2.375" PointY="26.875" />
+        <EntityTypeShape EntityType="tjoeGSTModel.GSTR2_APIs_Data" Width="1.5" PointX="6.625" PointY="11" />
+        <EntityTypeShape EntityType="tjoeGSTModel.Sales_Ledger_EInvoice_APIs_datum" Width="1.5" PointX="11.625" PointY="19.375" />
+        <EntityTypeShape EntityType="tjoeGSTModel.Sales_Ledger_EWay_Bill_APIs_datum" Width="1.5" PointX="8" PointY="19.375" />
+        <EntityTypeShape EntityType="tjoeGSTModel.GSTR2_Token_Data" Width="1.5" PointX="4.75" PointY="11" />
+        <EntityTypeShape EntityType="tjoeGSTModel.Sales_Ledger_Token_datum" Width="1.5" PointX="4.25" PointY="19.375" />
+        <EntityTypeShape EntityType="tjoeGSTModel.UserValidUpto" Width="1.5" PointX="4.75" PointY="3" />
+        <EntityTypeShape EntityType="tjoeGSTModel.PaymentDetail" Width="1.5" PointX="7.375" PointY="0.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

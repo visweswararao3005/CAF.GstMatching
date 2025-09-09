@@ -1,0 +1,242 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{CEC719A0-9FD7-4180-9CFA-38C715DF14ED}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CAF.GstMatching</RootNamespace>
+    <AssemblyName>CAF.GstMatching</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\..\CAF.GstMatching.Web\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\..\CAF.GstMatching.Web\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Build.Framework" />
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ApplicationDbContext.cs" />
+    <Compile Include="Business\CompareGstBusiness.cs" />
+    <Compile Include="Business\GSTR2DataBusiness.cs" />
+    <Compile Include="Business\GSTR2HeaderBusiness.cs" />
+    <Compile Include="Business\Interface\ICompareGstBusiness.cs" />
+    <Compile Include="Business\Interface\IGSTR2DataBusiness.cs" />
+    <Compile Include="Business\Interface\IGSTR2HeaderBusiness.cs" />
+    <Compile Include="Business\Interface\IModifiedDataBusiness.cs" />
+    <Compile Include="Business\Interface\INoticeDataBusiness.cs" />
+    <Compile Include="Business\Interface\IPurchaseDataBusiness.cs" />
+    <Compile Include="Business\Interface\IPurchaseTicketBusiness.cs" />
+    <Compile Include="Business\Interface\ISLComparedDataBusiness.cs" />
+    <Compile Include="Business\Interface\ISLDataBusiness.cs" />
+    <Compile Include="Business\Interface\ISLEInvoiceBusiness.cs" />
+    <Compile Include="Business\Interface\ISLEWayBillBusiness.cs" />
+    <Compile Include="Business\Interface\ISLTicketsBusiness.cs" />
+    <Compile Include="Business\Interface\IUserBusiness.cs" />
+    <Compile Include="Business\ModifiedDataBusiness.cs" />
+    <Compile Include="Business\NoticeDataBusiness.cs" />
+    <Compile Include="Business\PurchaseDataBusiness.cs" />
+    <Compile Include="Business\PurchaseTicketBusiness.cs" />
+    <Compile Include="Business\SLComparedDataBusiness.cs" />
+    <Compile Include="Business\SLDataBusiness.cs" />
+    <Compile Include="Business\SLEInvoiceBusiness.cs" />
+    <Compile Include="Business\SLEWayBillBusiness.cs" />
+    <Compile Include="Business\SLTicketsBusiness.cs" />
+    <Compile Include="Business\UserBusiness.cs" />
+    <Compile Include="Data\AdminUser.cs">
+      <DependentUpon>ApplicationDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Admin_Clients.cs">
+      <DependentUpon>ApplicationDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\ApplicationDBModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ApplicationDBModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\ApplicationDBModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ApplicationDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\ApplicationDBModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ApplicationDBModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Client_Api_datum.cs">
+      <DependentUpon>ApplicationDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\GSTCompareData.cs">
+      <DependentUpon>ApplicationDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\GSTR2_APIs_Data.cs">
+      <DependentUpon>ApplicationDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\GSTR2_Data.cs">
+      <DependentUpon>ApplicationDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\GSTR2_Header.cs">
+      <DependentUpon>ApplicationDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\GSTR2_Token_Data.cs">
+      <DependentUpon>ApplicationDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\GST_State_Code.cs">
+      <DependentUpon>ApplicationDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\ModifiedData.cs">
+      <DependentUpon>ApplicationDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\NoticeChat.cs">
+      <DependentUpon>ApplicationDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\NoticeData.cs">
+      <DependentUpon>ApplicationDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\PaymentDetail.cs">
+      <DependentUpon>ApplicationDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Purchase_datum.cs">
+      <DependentUpon>ApplicationDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Purchase_Ticket.cs">
+      <DependentUpon>ApplicationDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Sales_Ledger_datum.cs">
+      <DependentUpon>ApplicationDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Sales_Ledger_EInvoice.cs">
+      <DependentUpon>ApplicationDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Sales_Ledger_EInvoice_APIs_datum.cs">
+      <DependentUpon>ApplicationDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Sales_Ledger_EWay_Bill.cs">
+      <DependentUpon>ApplicationDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Sales_Ledger_EWay_Bill_APIs_datum.cs">
+      <DependentUpon>ApplicationDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Sales_Ledger_Ticket.cs">
+      <DependentUpon>ApplicationDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Sales_Ledger_Token_datum.cs">
+      <DependentUpon>ApplicationDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\SLComparedData.cs">
+      <DependentUpon>ApplicationDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\TBL_PRD_USERS.cs">
+      <DependentUpon>ApplicationDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\UserValidUpto.cs">
+      <DependentUpon>ApplicationDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Helper\CompareGstHelper.cs" />
+    <Compile Include="Helper\GSTR2DataHelper.cs" />
+    <Compile Include="Helper\ModifiedDataHelper.cs" />
+    <Compile Include="Helper\NoticeDataHelper.cs" />
+    <Compile Include="Helper\PurchaseDataHelper.cs" />
+    <Compile Include="Helper\PurchaseTicketHelper.cs" />
+    <Compile Include="Helper\SLComparedDataHelper.cs" />
+    <Compile Include="Helper\SLDataHelper.cs" />
+    <Compile Include="Helper\SLEInvoiceHelper.cs" />
+    <Compile Include="Helper\SLEWayBillHelper.cs" />
+    <Compile Include="Helper\SLTicketsHelper.cs" />
+    <Compile Include="Helper\UserHelper.cs" />
+    <Compile Include="Models\ClientAPIDataModel.cs" />
+    <Compile Include="Models\CompareGst\CompareGstResultModel.cs" />
+    <Compile Include="Models\CompareGst\DashboardDataModel.cs" />
+    <Compile Include="Models\CompareGst\SummaryExcelModel.cs" />
+    <Compile Include="Models\CompareGst\UnMatchedDataModel.cs" />
+    <Compile Include="Models\APIsDataModel.cs" />
+    <Compile Include="Models\GSTR2DataModel\AddGSTR2DataModel.cs" />
+    <Compile Include="Models\GSTR2DataModel\GetPortalModel.cs" />
+    <Compile Include="Models\GSTR2TokenDataModel.cs" />
+    <Compile Include="Models\NoticeChatModel.cs" />
+    <Compile Include="Models\NoticeDataModel.cs" />
+    <Compile Include="Models\PurchaseDataModel\AddInvoiceModel.cs" />
+    <Compile Include="Models\PurchaseDataModel\GetInvoiceModel.cs" />
+    <Compile Include="Models\PurchaseTicketModel\TicketsStatusModel.cs" />
+    <Compile Include="Models\SalesLedgerDataModel.cs" />
+    <Compile Include="Models\SalesLedgerEInvoicesDataModel.cs" />
+    <Compile Include="Models\SalesLedgerEWayBillsDataModel.cs" />
+    <Compile Include="Models\SalesLedgerTicketsModel.cs" />
+    <Compile Include="Models\SalesLedgerTokenDataModel.cs" />
+    <Compile Include="Models\SLComparedDataModel.cs" />
+    <Compile Include="Models\UserModel\AdminClientModel.cs" />
+    <Compile Include="Models\UserModel\AdminMailModel.cs" />
+    <Compile Include="Models\UserModel\MainUserModel.cs" />
+    <Compile Include="Models\UserModel\PaymentDetailModel.cs" />
+    <Compile Include="Models\UserModel\StateCodeModel.cs" />
+    <Compile Include="Models\UserModel\UserValidUptoModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EntityDeploy Include="Data\ApplicationDBModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ApplicationDBModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config" />
+    <None Include="Data\ApplicationDBModel.edmx.diagram">
+      <DependentUpon>ApplicationDBModel.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Data\ApplicationDBModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ApplicationDBModel.Context.cs</LastGenOutput>
+      <DependentUpon>ApplicationDBModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="Data\ApplicationDBModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ApplicationDBModel.edmx</DependentUpon>
+      <LastGenOutput>ApplicationDBModel.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

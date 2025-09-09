@@ -1,0 +1,1736 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="tjoeGSTModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Admin_Clients">
+          <Key>
+            <PropertyRef Name="Unique ID" />
+          </Key>
+          <Property Name="Unique ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="Client GSTIN" Type="nvarchar" MaxLength="15" />
+          <Property Name="ClientName" Type="nvarchar" MaxLength="50" />
+          <Property Name="FromDate" Type="datetime" />
+          <Property Name="ToDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="AdminUser">
+          <Key>
+            <PropertyRef Name="Email" />
+          </Key>
+          <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Client Api Data">
+          <Key>
+            <PropertyRef Name="Client Gstin" />
+          </Key>
+          <Property Name="Client Gstin" Type="nvarchar" MaxLength="15" Nullable="false" />
+          <Property Name="Gst Portal Username" Type="nvarchar" MaxLength="50" />
+          <Property Name="API IRIS Username" Type="nvarchar" MaxLength="50" />
+          <Property Name="API IRIS Password" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="GST State Codes">
+          <Key>
+            <PropertyRef Name="Code" />
+          </Key>
+          <Property Name="Code" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="GSTCompareData">
+          <Key>
+            <PropertyRef Name="unique value" />
+          </Key>
+          <Property Name="unique value" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Row Number" Type="int" />
+          <Property Name="Request No" Type="nvarchar" MaxLength="50" />
+          <Property Name="Client GSTIN" Type="nvarchar" MaxLength="50" />
+          <Property Name="Data Source" Type="nchar" MaxLength="10" />
+          <Property Name="Financial Year" Type="nchar" MaxLength="10" />
+          <Property Name="Year Month" Type="nchar" MaxLength="10" />
+          <Property Name="Period" Type="nchar" MaxLength="10" />
+          <Property Name="Matching Results" Type="nvarchar" MaxLength="50" />
+          <Property Name="Category" Type="nvarchar" MaxLength="50" />
+          <Property Name="Match Type" Type="nvarchar" MaxLength="50" />
+          <Property Name="Invoice Number" Type="nvarchar" MaxLength="50" />
+          <Property Name="Invoice Date" Type="nvarchar" MaxLength="50" />
+          <Property Name="Supplier GSTIN" Type="nvarchar" MaxLength="50" />
+          <Property Name="Supplier Name" Type="nvarchar" MaxLength="100" />
+          <Property Name="Taxable Value" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="CGST" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="SGST" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="IGST" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="CESS" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Total Tax" Type="decimal" Precision="18" Scale="2" />
+        </EntityType>
+        <EntityType Name="GSTR2 APIs Data">
+          <Key>
+            <PropertyRef Name="Unique ID" />
+          </Key>
+          <Property Name="Unique ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Client Gstin" Type="nvarchar" MaxLength="15" />
+          <Property Name="Request Number" Type="nvarchar" MaxLength="50" />
+          <Property Name="Session ID" Type="nvarchar" MaxLength="100" />
+          <Property Name="Request URL" Type="nvarchar(max)" />
+          <Property Name="Request Parameters" Type="nvarchar(max)" />
+          <Property Name="Request Headers" Type="nvarchar(max)" />
+          <Property Name="Request Body" Type="nvarchar(max)" />
+          <Property Name="Response" Type="nvarchar(max)" />
+          <Property Name="Response Code" Type="nvarchar" MaxLength="50" />
+          <Property Name="Status" Type="nvarchar" MaxLength="50" />
+          <Property Name="Logged Date Time" Type="datetime" />
+        </EntityType>
+        <EntityType Name="GSTR2 Data">
+          <Key>
+            <PropertyRef Name="EXERT_ID_COL" />
+          </Key>
+          <Property Name="EXERT_ID_COL" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="REF_EXERT_ID_COL" Type="varchar" MaxLength="50" />
+          <Property Name="EXERT_STATUS" Type="bit" />
+          <Property Name="EXERT_ROLL_CODE" Type="nvarchar" MaxLength="100" />
+          <Property Name="EXERT_ROLL_NAME" Type="varchar" MaxLength="100" />
+          <Property Name="EXERT_USER_CODE" Type="nvarchar" MaxLength="100" />
+          <Property Name="EXERT_USER_NAME" Type="varchar" MaxLength="100" />
+          <Property Name="EXERT_ENTITY_CODE" Type="nvarchar" MaxLength="100" />
+          <Property Name="EXERT_ENTITY_NAME" Type="varchar" MaxLength="100" />
+          <Property Name="EXERT_ENTRY_DATE" Type="smalldatetime" />
+          <Property Name="Client GSTIN" Type="nvarchar" MaxLength="15" />
+          <Property Name="GST Reg Type" Type="nvarchar" MaxLength="20" />
+          <Property Name="Supplier GSTIN" Type="nvarchar" MaxLength="15" />
+          <Property Name="Supplier Name" Type="nvarchar" MaxLength="100" />
+          <Property Name="Supplier Invoice No" Type="nvarchar" MaxLength="25" />
+          <Property Name="Supplier Invoice Date" Type="datetime" />
+          <Property Name="Day" Type="nchar" MaxLength="10" />
+          <Property Name="Month" Type="nchar" MaxLength="10" />
+          <Property Name="Year" Type="nchar" MaxLength="10" />
+          <Property Name="IsRCMApplied" Type="nvarchar" MaxLength="3" />
+          <Property Name="Invoice Value" Type="numeric" Precision="16" Scale="2" />
+          <Property Name="Item Taxable Value" Type="numeric" Precision="16" Scale="2" />
+          <Property Name="GST Rate" Type="numeric" Precision="8" Scale="2" />
+          <Property Name="IGST Value" Type="numeric" Precision="16" Scale="2" />
+          <Property Name="CGST Value" Type="numeric" Precision="16" Scale="2" />
+          <Property Name="SGST Value" Type="numeric" Precision="16" Scale="2" />
+          <Property Name="CESS" Type="numeric" Precision="16" Scale="2" />
+          <Property Name="IsReturnFiled" Type="nvarchar" MaxLength="10" />
+          <Property Name="Txn Period" Type="nvarchar" MaxLength="20" />
+          <Property Name="Request No" Type="nvarchar" MaxLength="50" />
+          <Property Name="Modified" Type="nchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="GSTR2 Header">
+          <Key>
+            <PropertyRef Name="EXERT_ID_COL" />
+          </Key>
+          <Property Name="EXERT_ID_COL" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="REF_EXERT_ID_COL" Type="varchar" MaxLength="50" />
+          <Property Name="EXERT_STATUS" Type="bit" />
+          <Property Name="EXERT_ROLL_CODE" Type="nvarchar" MaxLength="100" />
+          <Property Name="EXERT_ROLL_NAME" Type="varchar" MaxLength="100" />
+          <Property Name="EXERT_USER_CODE" Type="nvarchar" MaxLength="100" />
+          <Property Name="EXERT_USER_NAME" Type="varchar" MaxLength="100" />
+          <Property Name="EXERT_ENTITY_CODE" Type="nvarchar" MaxLength="100" />
+          <Property Name="EXERT_ENTITY_NAME" Type="varchar" MaxLength="100" />
+          <Property Name="EXERT_ENTRY_DATE" Type="smalldatetime" />
+          <Property Name="Client GSTIN" Type="nvarchar" MaxLength="15" />
+          <Property Name="Request No" Type="nvarchar" MaxLength="50" />
+          <Property Name="Request Date" Type="datetime" />
+          <Property Name="Txn Period" Type="nvarchar" MaxLength="20" />
+          <Property Name="Ticket Status" Type="nvarchar" MaxLength="20" />
+          <Property Name="No Edit" Type="nvarchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="GSTR2 Token Data">
+          <Key>
+            <PropertyRef Name="uniqueId" />
+          </Key>
+          <Property Name="uniqueId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Client Gstin" Type="nvarchar" MaxLength="15" />
+          <Property Name="Request Number" Type="nvarchar" MaxLength="50" />
+          <Property Name="User Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="X App Key" Type="nvarchar(max)" />
+          <Property Name="OTP" Type="nvarchar" MaxLength="10" />
+          <Property Name="Auth Token" Type="nvarchar(max)" />
+          <Property Name="Auth Token Created Datetime" Type="datetime" />
+          <Property Name="Expiry" Type="nvarchar" MaxLength="50" />
+          <Property Name="SEK" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="ModifiedData">
+          <Key>
+            <PropertyRef Name="S No" />
+          </Key>
+          <Property Name="S No" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EXERT_ID_COL" Type="nvarchar" MaxLength="50" />
+          <Property Name="Invoiceno" Type="nvarchar" MaxLength="25" />
+          <Property Name="Invoice Date" Type="datetime" />
+          <Property Name="Supplier GSTIN" Type="nvarchar" MaxLength="15" />
+          <Property Name="Tax Amount" Type="numeric" Precision="16" Scale="2" />
+          <Property Name="Data Source" Type="nchar" MaxLength="10" />
+          <Property Name="Modified DateTime" Type="datetime" />
+          <Property Name="Request No" Type="nvarchar" MaxLength="50" />
+          <Property Name="Client GSTIN" Type="nvarchar" MaxLength="15" />
+        </EntityType>
+        <EntityType Name="NoticeChat">
+          <Key>
+            <PropertyRef Name="Unique Id" />
+          </Key>
+          <Property Name="Unique Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Request Number" Type="nvarchar" MaxLength="50" />
+          <Property Name="Client Gstin" Type="nvarchar" MaxLength="15" />
+          <Property Name="Source" Type="nvarchar" MaxLength="50" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Message" Type="nvarchar(max)" />
+          <Property Name="Message Datetime" Type="datetime" />
+          <Property Name="IsRead" Type="bit" />
+        </EntityType>
+        <EntityType Name="NoticeData">
+          <Key>
+            <PropertyRef Name="Unique Id" />
+          </Key>
+          <Property Name="Unique Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Request Number" Type="nvarchar" MaxLength="50" />
+          <Property Name="Client Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Client Gstin" Type="nvarchar" MaxLength="15" />
+          <Property Name="Created Datetime" Type="datetime" />
+          <Property Name="UpdatedDateTime" Type="datetime" />
+          <Property Name="Notice Title" Type="nvarchar" MaxLength="100" />
+          <Property Name="Notice Datetime" Type="datetime" />
+          <Property Name="Priority" Type="nvarchar" MaxLength="50" />
+          <Property Name="Notice Description" Type="nvarchar" MaxLength="1000" />
+          <Property Name="status" Type="nvarchar" MaxLength="15" />
+          <Property Name="Closed Datetime" Type="datetime" />
+          <Property Name="FileName" Type="nvarchar(max)" />
+          <Property Name="ClosedBy" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="PaymentDetails">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ClientName" Type="nvarchar" MaxLength="50" />
+          <Property Name="ClientGstin" Type="nvarchar" MaxLength="15" />
+          <Property Name="ClientEmail" Type="nvarchar" MaxLength="50" />
+          <Property Name="ClientPhone" Type="nvarchar" MaxLength="10" />
+          <Property Name="ClientAddress" Type="nvarchar(max)" />
+          <Property Name="Amount" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Days" Type="int" />
+          <Property Name="OrderId" Type="nvarchar" MaxLength="50" />
+          <Property Name="PaymentId" Type="nvarchar" MaxLength="50" />
+          <Property Name="PaymentStatus" Type="nvarchar" MaxLength="15" />
+          <Property Name="PaymentDate" Type="datetime" />
+          <Property Name="TransactionId" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Purchase Data">
+          <Key>
+            <PropertyRef Name="EXERT_ID_COL" />
+          </Key>
+          <Property Name="EXERT_ID_COL" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="REF_EXERT_ID_COL" Type="varchar" MaxLength="50" />
+          <Property Name="EXERT_STATUS" Type="bit" />
+          <Property Name="EXERT_ROLL_CODE" Type="nvarchar" MaxLength="100" />
+          <Property Name="EXERT_ROLL_NAME" Type="varchar" MaxLength="100" />
+          <Property Name="EXERT_USER_CODE" Type="nvarchar" MaxLength="100" />
+          <Property Name="EXERT_USER_NAME" Type="varchar" MaxLength="100" />
+          <Property Name="EXERT_ENTITY_CODE" Type="nvarchar" MaxLength="100" />
+          <Property Name="EXERT_ENTITY_NAME" Type="varchar" MaxLength="100" />
+          <Property Name="EXERT_ENTRY_DATE" Type="smalldatetime" />
+          <Property Name="Client GSTIN" Type="nvarchar" MaxLength="15" />
+          <Property Name="Request No" Type="nvarchar" MaxLength="50" />
+          <Property Name="Txn Period" Type="nvarchar" MaxLength="20" />
+          <Property Name="Supplier GSTIN" Type="nvarchar" MaxLength="15" />
+          <Property Name="Supplier Name" Type="nvarchar" MaxLength="100" />
+          <Property Name="Invoiceno" Type="nvarchar" MaxLength="25" />
+          <Property Name="Invoice Date" Type="datetime" />
+          <Property Name="Day" Type="nchar" MaxLength="10" />
+          <Property Name="Month" Type="nchar" MaxLength="10" />
+          <Property Name="Year" Type="nchar" MaxLength="10" />
+          <Property Name="Taxable Value" Type="numeric" Precision="16" Scale="2" />
+          <Property Name="CGST" Type="numeric" Precision="16" Scale="2" />
+          <Property Name="SGST" Type="numeric" Precision="16" Scale="2" />
+          <Property Name="Integrated Tax" Type="numeric" Precision="16" Scale="2" />
+          <Property Name="CESS" Type="numeric" Precision="16" Scale="2" />
+          <Property Name="Remarks" Type="nvarchar" MaxLength="200" />
+          <Property Name="Modified" Type="nchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="Purchase Ticket">
+          <Key>
+            <PropertyRef Name="EXERT_ID_COL" />
+          </Key>
+          <Property Name="EXERT_ID_COL" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="REF_EXERT_ID_COL" Type="varchar" MaxLength="50" />
+          <Property Name="EXERT_STATUS" Type="bit" />
+          <Property Name="EXERT_ROLL_CODE" Type="nvarchar" MaxLength="100" />
+          <Property Name="EXERT_ROLL_NAME" Type="varchar" MaxLength="100" />
+          <Property Name="EXERT_USER_CODE" Type="nvarchar" MaxLength="100" />
+          <Property Name="EXERT_USER_NAME" Type="varchar" MaxLength="100" />
+          <Property Name="EXERT_ENTITY_CODE" Type="nvarchar" MaxLength="100" />
+          <Property Name="EXERT_ENTITY_NAME" Type="varchar" MaxLength="100" />
+          <Property Name="EXERT_ENTRY_DATE" Type="smalldatetime" />
+          <Property Name="Client GSTIN" Type="nvarchar" MaxLength="15" />
+          <Property Name="Request No" Type="nvarchar" MaxLength="50" />
+          <Property Name="Request Created Date" Type="datetime" />
+          <Property Name="Request Updated Date" Type="datetime" />
+          <Property Name="Txn Period" Type="nvarchar" MaxLength="20" />
+          <Property Name="Ticket Status" Type="nvarchar" MaxLength="20" />
+          <Property Name="No Edit" Type="nvarchar" MaxLength="10" />
+          <Property Name="Completed Date" Type="datetime" />
+          <Property Name="Financial Year" Type="nvarchar" MaxLength="50" />
+          <Property Name="Period Type" Type="nvarchar" MaxLength="50" />
+          <Property Name="File Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Admin File Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Sales Ledger Data">
+          <Key>
+            <PropertyRef Name="Unique Value" />
+          </Key>
+          <Property Name="Unique Value" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Client GSTIN" Type="nvarchar" MaxLength="15" />
+          <Property Name="Request Number" Type="nvarchar" MaxLength="50" />
+          <Property Name="Sno" Type="nvarchar" MaxLength="10" />
+          <Property Name="Invoice Number" Type="nvarchar" MaxLength="25" />
+          <Property Name="Invoice Date" Type="datetime" />
+          <Property Name="Date" Type="nchar" MaxLength="10" />
+          <Property Name="Month" Type="nchar" MaxLength="10" />
+          <Property Name="Year" Type="nchar" MaxLength="10" />
+          <Property Name="Customer Name" Type="nvarchar" MaxLength="100" />
+          <Property Name="Customer GSTIN" Type="nvarchar" MaxLength="15" />
+          <Property Name="State To Supply" Type="nvarchar" MaxLength="50" />
+          <Property Name="Taxable Amount" Type="numeric" Precision="16" Scale="2" />
+          <Property Name="CESS" Type="numeric" Precision="16" Scale="2" />
+          <Property Name="IGST" Type="numeric" Precision="16" Scale="2" />
+          <Property Name="SGST" Type="numeric" Precision="16" Scale="2" />
+          <Property Name="CGST" Type="numeric" Precision="16" Scale="2" />
+          <Property Name="Total Amount" Type="numeric" Precision="16" Scale="2" />
+          <Property Name="GST Rate" Type="nchar" MaxLength="10" />
+          <Property Name="HSN SAC Code" Type="nvarchar" MaxLength="50" />
+          <Property Name="Quantity" Type="nvarchar" MaxLength="50" />
+          <Property Name="Units" Type="nvarchar" MaxLength="50" />
+          <Property Name="Material Description" Type="nvarchar" MaxLength="250" />
+          <Property Name="Type Of Invoice" Type="nvarchar" MaxLength="50" />
+          <Property Name="IRN" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Sales Ledger EInvoice">
+          <Key>
+            <PropertyRef Name="Unique Value" />
+          </Key>
+          <Property Name="Unique Value" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Recipient GSTIN" Type="nvarchar" MaxLength="15" />
+          <Property Name="Receiver Name" Type="varchar" MaxLength="100" />
+          <Property Name="Invoice Number" Type="nvarchar" MaxLength="25" />
+          <Property Name="Invoice date" Type="datetime" />
+          <Property Name="Date" Type="nchar" MaxLength="10" />
+          <Property Name="Month" Type="nchar" MaxLength="10" />
+          <Property Name="Year" Type="nchar" MaxLength="10" />
+          <Property Name="Invoice Value" Type="numeric" Precision="16" Scale="2" />
+          <Property Name="Place Of Supply" Type="nvarchar" MaxLength="50" />
+          <Property Name="Reverse Charge" Type="nvarchar" MaxLength="50" />
+          <Property Name="Invoice Type" Type="nvarchar" MaxLength="50" />
+          <Property Name="E-Commerce GSTIN" Type="nvarchar" MaxLength="15" />
+          <Property Name="Tax Rate" Type="nchar" MaxLength="10" />
+          <Property Name="Taxable Value" Type="numeric" Precision="16" Scale="2" />
+          <Property Name="IGST" Type="numeric" Precision="16" Scale="2" />
+          <Property Name="CGST" Type="numeric" Precision="16" Scale="2" />
+          <Property Name="SGST" Type="numeric" Precision="16" Scale="2" />
+          <Property Name="CESS" Type="numeric" Precision="16" Scale="2" />
+          <Property Name="IRN" Type="nvarchar" MaxLength="100" />
+          <Property Name="IRN Date" Type="datetime" />
+          <Property Name="E-invoice status" Type="nvarchar" MaxLength="50" />
+          <Property Name="Request Number" Type="nvarchar" MaxLength="50" />
+          <Property Name="Client Gstin" Type="nvarchar" MaxLength="15" />
+          <Property Name="Applicable Tax Rate" Type="nvarchar" MaxLength="50" />
+          <Property Name="GSTR1 Auto Population Deletion Date" Type="datetime" />
+          <Property Name="GSTR1 Auto Population Deletion Status" Type="nvarchar" MaxLength="50" />
+          <Property Name="Error In Auto Population Deletion" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Sales Ledger EInvoice APIs Data">
+          <Key>
+            <PropertyRef Name="Unique ID" />
+          </Key>
+          <Property Name="Unique ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Client Gstin" Type="nvarchar" MaxLength="15" />
+          <Property Name="Request Number" Type="nvarchar" MaxLength="50" />
+          <Property Name="Session ID" Type="nvarchar" MaxLength="100" />
+          <Property Name="Request URL" Type="nvarchar(max)" />
+          <Property Name="Request Parameters" Type="nvarchar(max)" />
+          <Property Name="Request Headers" Type="nvarchar(max)" />
+          <Property Name="Request Body" Type="nvarchar(max)" />
+          <Property Name="Response" Type="nvarchar(max)" />
+          <Property Name="Response Code" Type="nvarchar" MaxLength="50" />
+          <Property Name="Status" Type="nvarchar" MaxLength="50" />
+          <Property Name="Logged Date Time" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Sales Ledger EWay Bill">
+          <Key>
+            <PropertyRef Name="Unique Value" />
+          </Key>
+          <Property Name="Unique Value" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Request Number" Type="nvarchar" MaxLength="50" />
+          <Property Name="EWB Number" Type="nvarchar" MaxLength="25" />
+          <Property Name="EWB Date" Type="datetime" />
+          <Property Name="Date" Type="nchar" MaxLength="10" />
+          <Property Name="Month" Type="nchar" MaxLength="10" />
+          <Property Name="Year" Type="nchar" MaxLength="10" />
+          <Property Name="Supply Type" Type="nvarchar" MaxLength="50" />
+          <Property Name="Doc Number" Type="nvarchar" MaxLength="25" />
+          <Property Name="Doc Date" Type="datetime" />
+          <Property Name="Doc Type" Type="nvarchar" MaxLength="50" />
+          <Property Name="TO GSTIN" Type="nvarchar" MaxLength="15" />
+          <Property Name="status" Type="nvarchar" MaxLength="50" />
+          <Property Name="No of Items" Type="nchar" MaxLength="10" />
+          <Property Name="Main HSN Code" Type="nvarchar" MaxLength="50" />
+          <Property Name="Main HSN Desc" Type="nvarchar" MaxLength="250" />
+          <Property Name="Assessable Value" Type="numeric" Precision="16" Scale="2" />
+          <Property Name="SGST" Type="numeric" Precision="16" Scale="2" />
+          <Property Name="CGST" Type="numeric" Precision="16" Scale="2" />
+          <Property Name="IGST" Type="numeric" Precision="16" Scale="2" />
+          <Property Name="CESS" Type="numeric" Precision="16" Scale="2" />
+          <Property Name="Total Invoice Value" Type="numeric" Precision="16" Scale="2" />
+          <Property Name="Valid Till Date" Type="datetime" />
+          <Property Name="Gen Mode" Type="nvarchar" MaxLength="50" />
+          <Property Name="Client Gstin" Type="nvarchar" MaxLength="15" />
+        </EntityType>
+        <EntityType Name="Sales Ledger EWay Bill APIs Data">
+          <Key>
+            <PropertyRef Name="Unique ID" />
+          </Key>
+          <Property Name="Unique ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Client Gstin" Type="nvarchar" MaxLength="15" />
+          <Property Name="Request Number" Type="nvarchar" MaxLength="50" />
+          <Property Name="Session ID" Type="nvarchar" MaxLength="100" />
+          <Property Name="Request URL" Type="nvarchar(max)" />
+          <Property Name="Request Parameters" Type="nvarchar(max)" />
+          <Property Name="Request Headers" Type="nvarchar(max)" />
+          <Property Name="Request Body" Type="nvarchar(max)" />
+          <Property Name="Response" Type="nvarchar(max)" />
+          <Property Name="Response Code" Type="nvarchar" MaxLength="50" />
+          <Property Name="Status" Type="nvarchar" MaxLength="50" />
+          <Property Name="Logged Date Time" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Sales Ledger Ticket">
+          <Key>
+            <PropertyRef Name="Unique Value" />
+          </Key>
+          <Property Name="Unique Value" Type="nchar" MaxLength="50" Nullable="false" />
+          <Property Name="Request Number" Type="nvarchar" MaxLength="50" />
+          <Property Name="Client Name" Type="varchar" MaxLength="100" />
+          <Property Name="CLient Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="Client Gstin" Type="nvarchar" MaxLength="15" />
+          <Property Name="Request Created Date" Type="datetime" />
+          <Property Name="Request Updated Date" Type="datetime" />
+          <Property Name="Request Complete Date" Type="datetime" />
+          <Property Name="File Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="EInvoice File Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="EWay Bill File Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Edit" Type="nvarchar" MaxLength="10" />
+          <Property Name="Financial Year" Type="nvarchar" MaxLength="50" />
+          <Property Name="Period Type" Type="nvarchar" MaxLength="50" />
+          <Property Name="Period" Type="nvarchar" MaxLength="50" />
+          <Property Name="Ticket Status" Type="nvarchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="Sales Ledger Token Data">
+          <Key>
+            <PropertyRef Name="uniqueId" />
+          </Key>
+          <Property Name="uniqueId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ClientGstin" Type="nvarchar" MaxLength="15" />
+          <Property Name="RequestNumber" Type="nvarchar" MaxLength="50" />
+          <Property Name="EInvoiceAuthToken" Type="nvarchar(max)" />
+          <Property Name="EInvoiceAuthTokenCreatedDatetime" Type="datetime" />
+          <Property Name="EInvoiceSek" Type="nvarchar(max)" />
+          <Property Name="EInvoiceTokenExpiry" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="SLComparedData">
+          <Key>
+            <PropertyRef Name="uni" />
+          </Key>
+          <Property Name="uni" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Unique Value" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Client Gstin" Type="nvarchar" MaxLength="15" />
+          <Property Name="Request Number" Type="nvarchar" MaxLength="50" />
+          <Property Name="S No" Type="int" />
+          <Property Name="Invoice Number" Type="nvarchar" MaxLength="25" />
+          <Property Name="Invoice Date" Type="datetime" />
+          <Property Name="Customer Name" Type="nvarchar" MaxLength="100" />
+          <Property Name="Customer Gstin" Type="nvarchar" MaxLength="15" />
+          <Property Name="Place of Supply" Type="nvarchar" MaxLength="50" />
+          <Property Name="Taxable Amount" Type="numeric" Precision="16" Scale="2" />
+          <Property Name="CGST" Type="numeric" Precision="16" Scale="2" />
+          <Property Name="SGST" Type="numeric" Precision="16" Scale="2" />
+          <Property Name="IGST" Type="numeric" Precision="16" Scale="2" />
+          <Property Name="CESS" Type="numeric" Precision="16" Scale="2" />
+          <Property Name="Total Amount" Type="numeric" Precision="16" Scale="2" />
+          <Property Name="GST Rate" Type="nchar" MaxLength="10" />
+          <Property Name="Type Of Invoice" Type="nvarchar" MaxLength="50" />
+          <Property Name="Category" Type="nvarchar" MaxLength="50" />
+          <Property Name="DataSource" Type="nchar" MaxLength="10" />
+          <Property Name="Match Type" Type="nvarchar" MaxLength="100" />
+          <Property Name="Compare" Type="nvarchar" MaxLength="50" />
+          <Property Name="Period" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'tjoeGST.dbo.TBL_PRD_USERS' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="TBL_PRD_USERS">
+          <Key>
+            <PropertyRef Name="EXERT_ID_COL" />
+          </Key>
+          <Property Name="EXERT_ID_COL" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="REF_EXERT_ID_COL" Type="varchar" MaxLength="50" />
+          <Property Name="EXERT_STATUS" Type="bit" />
+          <Property Name="USER CODE" Type="nvarchar" MaxLength="50" />
+          <Property Name="USER NAME" Type="nvarchar" MaxLength="50" />
+          <Property Name="PASSWORD" Type="nvarchar" MaxLength="200" />
+          <Property Name="ROLE CODE" Type="nvarchar" MaxLength="50" />
+          <Property Name="ROLE NAME" Type="nvarchar" MaxLength="50" />
+          <Property Name="LANGUAGE" Type="nvarchar" MaxLength="200" />
+          <Property Name="Themes" Type="nvarchar" MaxLength="200" />
+          <Property Name="EXERT_ENTITY_CODE" Type="nvarchar" MaxLength="100" />
+          <Property Name="EXERT_ENTITY_NAME" Type="nvarchar" MaxLength="100" />
+          <Property Name="EXERT_USER_CODE" Type="nvarchar" MaxLength="100" />
+          <Property Name="EXERT_USER_NAME" Type="nvarchar" MaxLength="100" />
+          <Property Name="EXERT_ROLL_CODE" Type="nvarchar" MaxLength="100" />
+          <Property Name="EXERT_ROLL_NAME" Type="nvarchar" MaxLength="100" />
+          <Property Name="Confirm Password" Type="nvarchar" MaxLength="50" />
+          <Property Name="Default page" Type="nvarchar" MaxLength="200" />
+          <Property Name="Page Layout Type" Type="varchar" MaxLength="50" />
+          <Property Name="EXERT_ENTRY_DATE" Type="datetime" />
+          <Property Name="Entity Code" Type="nvarchar" MaxLength="50" />
+          <Property Name="Entity Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Email" Type="nvarchar" MaxLength="200" />
+          <Property Name="Designation" Type="nvarchar" MaxLength="100" />
+          <Property Name="Lower Limit" Type="numeric" Precision="12" Scale="2" />
+          <Property Name="Upper Limit" Type="numeric" Precision="12" Scale="2" />
+          <Property Name="Currency" Type="nvarchar" MaxLength="100" />
+          <Property Name="Type " Type="nvarchar" MaxLength="50" />
+          <Property Name="Address" Type="nvarchar" MaxLength="4000" />
+          <Property Name="Department" Type="nvarchar" MaxLength="100" />
+          <Property Name="LoginAttempt" Type="varchar" MaxLength="50" />
+          <Property Name="RowsPerPage" Type="numeric" Precision="10" Scale="0" />
+          <Property Name="LkUpRowsPerPage" Type="numeric" Precision="10" Scale="0" />
+          <Property Name="Full Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Mobile PIN" Type="nvarchar" MaxLength="10" />
+          <Property Name="Department HOD" Type="nvarchar" MaxLength="50" />
+          <Property Name="LastPasswordSet" Type="datetime" />
+          <Property Name="ExpiryTimeSpan" Type="nvarchar" MaxLength="10" />
+          <Property Name="ForgotPasswordToken" Type="nvarchar" MaxLength="100" />
+          <Property Name="Failure_Count" Type="numeric" Precision="3" Scale="0" />
+          <Property Name="Last_Locked_Date" Type="datetime" />
+          <Property Name="Password Changed" Type="nvarchar" MaxLength="10" />
+          <Property Name="Failure Count" Type="numeric" Precision="3" Scale="0" />
+          <Property Name="Last Locked Date" Type="datetime" />
+          <Property Name="Status" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="UserValidUpto">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserEmail" Type="nvarchar" MaxLength="50" />
+          <Property Name="UserGstin" Type="nvarchar" MaxLength="15" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="50" />
+          <Property Name="AccessFromDate" Type="datetime" />
+          <Property Name="AccessToDate" Type="datetime" />
+        </EntityType>
+        <EntityContainer Name="tjoeGSTModelStoreContainer">
+          <EntitySet Name="Admin_Clients" EntityType="Self.Admin_Clients" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AdminUser" EntityType="Self.AdminUser" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Client Api Data" EntityType="Self.Client Api Data" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GST State Codes" EntityType="Self.GST State Codes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GSTCompareData" EntityType="Self.GSTCompareData" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GSTR2 APIs Data" EntityType="Self.GSTR2 APIs Data" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GSTR2 Data" EntityType="Self.GSTR2 Data" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GSTR2 Header" EntityType="Self.GSTR2 Header" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GSTR2 Token Data" EntityType="Self.GSTR2 Token Data" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ModifiedData" EntityType="Self.ModifiedData" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NoticeChat" EntityType="Self.NoticeChat" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NoticeData" EntityType="Self.NoticeData" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PaymentDetails" EntityType="Self.PaymentDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Purchase Data" EntityType="Self.Purchase Data" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Purchase Ticket" EntityType="Self.Purchase Ticket" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sales Ledger Data" EntityType="Self.Sales Ledger Data" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sales Ledger EInvoice" EntityType="Self.Sales Ledger EInvoice" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sales Ledger EInvoice APIs Data" EntityType="Self.Sales Ledger EInvoice APIs Data" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sales Ledger EWay Bill" EntityType="Self.Sales Ledger EWay Bill" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sales Ledger EWay Bill APIs Data" EntityType="Self.Sales Ledger EWay Bill APIs Data" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sales Ledger Ticket" EntityType="Self.Sales Ledger Ticket" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sales Ledger Token Data" EntityType="Self.Sales Ledger Token Data" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SLComparedData" EntityType="Self.SLComparedData" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserValidUpto" EntityType="Self.UserValidUpto" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBL_PRD_USERS" EntityType="Self.TBL_PRD_USERS" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [TBL_PRD_USERS].[EXERT_ID_COL] AS [EXERT_ID_COL], 
+    [TBL_PRD_USERS].[REF_EXERT_ID_COL] AS [REF_EXERT_ID_COL], 
+    [TBL_PRD_USERS].[EXERT_STATUS] AS [EXERT_STATUS], 
+    [TBL_PRD_USERS].[USER CODE] AS [USER CODE], 
+    [TBL_PRD_USERS].[USER NAME] AS [USER NAME], 
+    [TBL_PRD_USERS].[PASSWORD] AS [PASSWORD], 
+    [TBL_PRD_USERS].[ROLE CODE] AS [ROLE CODE], 
+    [TBL_PRD_USERS].[ROLE NAME] AS [ROLE NAME], 
+    [TBL_PRD_USERS].[LANGUAGE] AS [LANGUAGE], 
+    [TBL_PRD_USERS].[Themes] AS [Themes], 
+    [TBL_PRD_USERS].[EXERT_ENTITY_CODE] AS [EXERT_ENTITY_CODE], 
+    [TBL_PRD_USERS].[EXERT_ENTITY_NAME] AS [EXERT_ENTITY_NAME], 
+    [TBL_PRD_USERS].[EXERT_USER_CODE] AS [EXERT_USER_CODE], 
+    [TBL_PRD_USERS].[EXERT_USER_NAME] AS [EXERT_USER_NAME], 
+    [TBL_PRD_USERS].[EXERT_ROLL_CODE] AS [EXERT_ROLL_CODE], 
+    [TBL_PRD_USERS].[EXERT_ROLL_NAME] AS [EXERT_ROLL_NAME], 
+    [TBL_PRD_USERS].[Confirm Password] AS [Confirm Password], 
+    [TBL_PRD_USERS].[Default page] AS [Default page], 
+    [TBL_PRD_USERS].[Page Layout Type] AS [Page Layout Type], 
+    [TBL_PRD_USERS].[EXERT_ENTRY_DATE] AS [EXERT_ENTRY_DATE], 
+    [TBL_PRD_USERS].[Entity Code] AS [Entity Code], 
+    [TBL_PRD_USERS].[Entity Name] AS [Entity Name], 
+    [TBL_PRD_USERS].[Email] AS [Email], 
+    [TBL_PRD_USERS].[Designation] AS [Designation], 
+    [TBL_PRD_USERS].[Lower Limit] AS [Lower Limit], 
+    [TBL_PRD_USERS].[Upper Limit] AS [Upper Limit], 
+    [TBL_PRD_USERS].[Currency] AS [Currency], 
+    [TBL_PRD_USERS].[Type ] AS [Type ], 
+    [TBL_PRD_USERS].[Address] AS [Address], 
+    [TBL_PRD_USERS].[Department] AS [Department], 
+    [TBL_PRD_USERS].[LoginAttempt] AS [LoginAttempt], 
+    [TBL_PRD_USERS].[RowsPerPage] AS [RowsPerPage], 
+    [TBL_PRD_USERS].[LkUpRowsPerPage] AS [LkUpRowsPerPage], 
+    [TBL_PRD_USERS].[Full Name] AS [Full Name], 
+    [TBL_PRD_USERS].[Mobile PIN] AS [Mobile PIN], 
+    [TBL_PRD_USERS].[Department HOD] AS [Department HOD], 
+    [TBL_PRD_USERS].[LastPasswordSet] AS [LastPasswordSet], 
+    [TBL_PRD_USERS].[ExpiryTimeSpan] AS [ExpiryTimeSpan], 
+    [TBL_PRD_USERS].[ForgotPasswordToken] AS [ForgotPasswordToken], 
+    [TBL_PRD_USERS].[Failure_Count] AS [Failure_Count], 
+    [TBL_PRD_USERS].[Last_Locked_Date] AS [Last_Locked_Date], 
+    [TBL_PRD_USERS].[Password Changed] AS [Password Changed], 
+    [TBL_PRD_USERS].[Failure Count] AS [Failure Count], 
+    [TBL_PRD_USERS].[Last Locked Date] AS [Last Locked Date], 
+    [TBL_PRD_USERS].[Status] AS [Status]
+    FROM [dbo].[TBL_PRD_USERS] AS [TBL_PRD_USERS]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="tjoeGSTModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="tjoeGSTEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="GSTR2_Header" EntityType="tjoeGSTModel.GSTR2_Header" />
+          <EntitySet Name="TBL_PRD_USERS" EntityType="tjoeGSTModel.TBL_PRD_USERS" />
+          <EntitySet Name="Purchase_Data" EntityType="tjoeGSTModel.Purchase_datum" />
+          <EntitySet Name="GSTR2_Data" EntityType="tjoeGSTModel.GSTR2_Data" />
+          <EntitySet Name="Purchase_Tickets" EntityType="tjoeGSTModel.Purchase_Ticket" />
+          <EntitySet Name="GST_State_Codes" EntityType="tjoeGSTModel.GST_State_Code" />
+          <EntitySet Name="AdminUsers" EntityType="tjoeGSTModel.AdminUser" />
+          <EntitySet Name="Admin_Clients" EntityType="tjoeGSTModel.Admin_Clients" />
+          <EntitySet Name="GSTCompareDatas" EntityType="tjoeGSTModel.GSTCompareData" />
+          <EntitySet Name="ModifiedDatas" EntityType="tjoeGSTModel.ModifiedData" />
+          <EntitySet Name="Sales_Ledger_Data" EntityType="tjoeGSTModel.Sales_Ledger_datum" />
+          <EntitySet Name="Sales_Ledger_EInvoices" EntityType="tjoeGSTModel.Sales_Ledger_EInvoice" />
+          <EntitySet Name="Sales_Ledger_EWay_Bills" EntityType="tjoeGSTModel.Sales_Ledger_EWay_Bill" />
+          <EntitySet Name="Sales_Ledger_Tickets" EntityType="tjoeGSTModel.Sales_Ledger_Ticket" />
+          <EntitySet Name="SLComparedDatas" EntityType="tjoeGSTModel.SLComparedData" />
+          <EntitySet Name="Client_Api_Data" EntityType="tjoeGSTModel.Client_Api_datum" />
+          <EntitySet Name="NoticeDatas" EntityType="tjoeGSTModel.NoticeData" />
+          <EntitySet Name="NoticeChats" EntityType="tjoeGSTModel.NoticeChat" />
+          <EntitySet Name="GSTR2_APIs_Data" EntityType="tjoeGSTModel.GSTR2_APIs_Data" />
+          <EntitySet Name="Sales_Ledger_EInvoice_APIs_Data" EntityType="tjoeGSTModel.Sales_Ledger_EInvoice_APIs_datum" />
+          <EntitySet Name="Sales_Ledger_EWay_Bill_APIs_Data" EntityType="tjoeGSTModel.Sales_Ledger_EWay_Bill_APIs_datum" />
+          <EntitySet Name="GSTR2_Token_Data" EntityType="tjoeGSTModel.GSTR2_Token_Data" />
+          <EntitySet Name="Sales_Ledger_Token_Data" EntityType="tjoeGSTModel.Sales_Ledger_Token_datum" />
+          <EntitySet Name="UserValidUptoes" EntityType="tjoeGSTModel.UserValidUpto" />
+          <EntitySet Name="PaymentDetails" EntityType="tjoeGSTModel.PaymentDetail" />
+        </EntityContainer>
+        <EntityType Name="GSTR2_Header">
+          <Key>
+            <PropertyRef Name="EXERT_ID_COL" />
+          </Key>
+          <Property Name="EXERT_ID_COL" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="REF_EXERT_ID_COL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EXERT_STATUS" Type="Boolean" />
+          <Property Name="EXERT_ROLL_CODE" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="EXERT_ROLL_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="EXERT_USER_CODE" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="EXERT_USER_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="EXERT_ENTITY_CODE" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="EXERT_ENTITY_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="EXERT_ENTRY_DATE" Type="DateTime" Precision="0" />
+          <Property Name="Client_GSTIN" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="Request_No" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Request_Date" Type="DateTime" Precision="3" />
+          <Property Name="Txn_Period" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Ticket_Status" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="No_Edit" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="TBL_PRD_USERS">
+          <Key>
+            <PropertyRef Name="EXERT_ID_COL" />
+          </Key>
+          <Property Name="EXERT_ID_COL" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="REF_EXERT_ID_COL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EXERT_STATUS" Type="Boolean" />
+          <Property Name="USER_CODE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="USER_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PASSWORD" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="ROLE_CODE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ROLE_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LANGUAGE" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Themes" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="EXERT_ENTITY_CODE" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="EXERT_ENTITY_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="EXERT_USER_CODE" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="EXERT_USER_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="EXERT_ROLL_CODE" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="EXERT_ROLL_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Confirm_Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Default_page" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Page_Layout_Type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EXERT_ENTRY_DATE" Type="DateTime" Precision="3" />
+          <Property Name="Entity_Code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Entity_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Designation" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Lower_Limit" Type="Decimal" Precision="12" Scale="2" />
+          <Property Name="Upper_Limit" Type="Decimal" Precision="12" Scale="2" />
+          <Property Name="Currency" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Type_" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+          <Property Name="Department" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="LoginAttempt" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="RowsPerPage" Type="Decimal" Precision="10" Scale="0" />
+          <Property Name="LkUpRowsPerPage" Type="Decimal" Precision="10" Scale="0" />
+          <Property Name="Full_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Mobile_PIN" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Department_HOD" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LastPasswordSet" Type="DateTime" Precision="3" />
+          <Property Name="ExpiryTimeSpan" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="ForgotPasswordToken" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Failure_Count" Type="Decimal" Precision="3" Scale="0" />
+          <Property Name="Last_Locked_Date" Type="DateTime" Precision="3" />
+          <Property Name="Password_Changed" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Failure_Count1" Type="Decimal" Precision="3" Scale="0" />
+          <Property Name="Last_Locked_Date1" Type="DateTime" Precision="3" />
+          <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Purchase_datum">
+          <Key>
+            <PropertyRef Name="EXERT_ID_COL" />
+          </Key>
+          <Property Name="EXERT_ID_COL" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="REF_EXERT_ID_COL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EXERT_STATUS" Type="Boolean" />
+          <Property Name="EXERT_ROLL_CODE" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="EXERT_ROLL_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="EXERT_USER_CODE" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="EXERT_USER_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="EXERT_ENTITY_CODE" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="EXERT_ENTITY_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="EXERT_ENTRY_DATE" Type="DateTime" Precision="0" />
+          <Property Name="Client_GSTIN" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="Request_No" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Txn_Period" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Supplier_GSTIN" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="Supplier_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Invoiceno" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="Invoice_Date" Type="DateTime" Precision="3" />
+          <Property Name="Taxable_Value" Type="Decimal" Precision="16" Scale="2" />
+          <Property Name="CGST" Type="Decimal" Precision="16" Scale="2" />
+          <Property Name="SGST" Type="Decimal" Precision="16" Scale="2" />
+          <Property Name="Integrated_Tax" Type="Decimal" Precision="16" Scale="2" />
+          <Property Name="CESS" Type="Decimal" Precision="16" Scale="2" />
+          <Property Name="Remarks" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Day" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Month" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Year" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Modified" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="GSTR2_Data">
+          <Key>
+            <PropertyRef Name="EXERT_ID_COL" />
+          </Key>
+          <Property Name="EXERT_ID_COL" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="REF_EXERT_ID_COL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EXERT_STATUS" Type="Boolean" />
+          <Property Name="EXERT_ROLL_CODE" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="EXERT_ROLL_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="EXERT_USER_CODE" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="EXERT_USER_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="EXERT_ENTITY_CODE" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="EXERT_ENTITY_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="EXERT_ENTRY_DATE" Type="DateTime" Precision="0" />
+          <Property Name="Client_GSTIN" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="GST_Reg_Type" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Supplier_GSTIN" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="Supplier_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Supplier_Invoice_No" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="Supplier_Invoice_Date" Type="DateTime" Precision="3" />
+          <Property Name="IsRCMApplied" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
+          <Property Name="Invoice_Value" Type="Decimal" Precision="16" Scale="2" />
+          <Property Name="Item_Taxable_Value" Type="Decimal" Precision="16" Scale="2" />
+          <Property Name="GST_Rate" Type="Decimal" Precision="8" Scale="2" />
+          <Property Name="IGST_Value" Type="Decimal" Precision="16" Scale="2" />
+          <Property Name="CGST_Value" Type="Decimal" Precision="16" Scale="2" />
+          <Property Name="SGST_Value" Type="Decimal" Precision="16" Scale="2" />
+          <Property Name="CESS" Type="Decimal" Precision="16" Scale="2" />
+          <Property Name="IsReturnFiled" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Txn_Period" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Request_No" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Day" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Month" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Year" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Modified" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Purchase_Ticket">
+          <Key>
+            <PropertyRef Name="EXERT_ID_COL" />
+          </Key>
+          <Property Name="EXERT_ID_COL" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="REF_EXERT_ID_COL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EXERT_STATUS" Type="Boolean" />
+          <Property Name="EXERT_ROLL_CODE" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="EXERT_ROLL_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="EXERT_USER_CODE" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="EXERT_USER_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="EXERT_ENTITY_CODE" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="EXERT_ENTITY_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="EXERT_ENTRY_DATE" Type="DateTime" Precision="0" />
+          <Property Name="Client_GSTIN" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="Request_No" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Request_Updated_Date" Type="DateTime" Precision="3" />
+          <Property Name="Request_Created_Date" Type="DateTime" Precision="3" />
+          <Property Name="Txn_Period" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Ticket_Status" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="No_Edit" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Completed_Date" Type="DateTime" Precision="3" />
+          <Property Name="Financial_Year" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Period_Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="File_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Admin_File_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="GST_State_Code">
+          <Key>
+            <PropertyRef Name="Code" />
+          </Key>
+          <Property Name="Code" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="AdminUser">
+          <Key>
+            <PropertyRef Name="Email" />
+          </Key>
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Admin_Clients">
+          <Key>
+            <PropertyRef Name="Unique_ID" />
+          </Key>
+          <Property Name="Unique_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Client_GSTIN" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="FromDate" Type="DateTime" Precision="3" />
+          <Property Name="ToDate" Type="DateTime" Precision="3" />
+          <Property Name="ClientName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="GSTCompareData">
+          <Key>
+            <PropertyRef Name="unique_value" />
+          </Key>
+          <Property Name="unique_value" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Row_Number" Type="Int32" />
+          <Property Name="Request_No" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Client_GSTIN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Data_Source" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Financial_Year" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Year_Month" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Period" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Matching_Results" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Category" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Match_Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Invoice_Number" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Invoice_Date" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Supplier_GSTIN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Supplier_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Taxable_Value" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="CGST" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="SGST" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="IGST" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="CESS" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Total_Tax" Type="Decimal" Precision="18" Scale="2" />
+        </EntityType>
+        <EntityType Name="ModifiedData">
+          <Key>
+            <PropertyRef Name="S_No" />
+          </Key>
+          <Property Name="S_No" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EXERT_ID_COL" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Invoiceno" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="Invoice_Date" Type="DateTime" Precision="3" />
+          <Property Name="Supplier_GSTIN" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="Tax_Amount" Type="Decimal" Precision="16" Scale="2" />
+          <Property Name="Data_Source" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Modified_DateTime" Type="DateTime" Precision="3" />
+          <Property Name="Request_No" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Client_GSTIN" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Sales_Ledger_datum">
+          <Key>
+            <PropertyRef Name="Unique_Value" />
+          </Key>
+          <Property Name="Unique_Value" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Request_Number" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Sno" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Invoice_Number" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="Invoice_Date" Type="DateTime" Precision="3" />
+          <Property Name="Date" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Month" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Year" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Customer_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Customer_GSTIN" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="State_To_Supply" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Taxable_Amount" Type="Decimal" Precision="16" Scale="2" />
+          <Property Name="CESS" Type="Decimal" Precision="16" Scale="2" />
+          <Property Name="IGST" Type="Decimal" Precision="16" Scale="2" />
+          <Property Name="SGST" Type="Decimal" Precision="16" Scale="2" />
+          <Property Name="CGST" Type="Decimal" Precision="16" Scale="2" />
+          <Property Name="Total_Amount" Type="Decimal" Precision="16" Scale="2" />
+          <Property Name="GST_Rate" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="HSN_SAC_Code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Quantity" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Units" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Material_Description" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Type_Of_Invoice" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Client_GSTIN" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="IRN" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Sales_Ledger_EInvoice">
+          <Key>
+            <PropertyRef Name="Unique_Value" />
+          </Key>
+          <Property Name="Unique_Value" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Recipient_GSTIN" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="Receiver_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Invoice_Number" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="Invoice_date" Type="DateTime" Precision="3" />
+          <Property Name="Date" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Month" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Year" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Invoice_Value" Type="Decimal" Precision="16" Scale="2" />
+          <Property Name="Place_Of_Supply" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Reverse_Charge" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Invoice_Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="E_Commerce_GSTIN" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="Tax_Rate" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Taxable_Value" Type="Decimal" Precision="16" Scale="2" />
+          <Property Name="IGST" Type="Decimal" Precision="16" Scale="2" />
+          <Property Name="CGST" Type="Decimal" Precision="16" Scale="2" />
+          <Property Name="SGST" Type="Decimal" Precision="16" Scale="2" />
+          <Property Name="CESS" Type="Decimal" Precision="16" Scale="2" />
+          <Property Name="IRN" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="IRN_Date" Type="DateTime" Precision="3" />
+          <Property Name="E_invoice_status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Request_Number" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Client_Gstin" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="Applicable_Tax_Rate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="GSTR1_Auto_Population_Deletion_Date" Type="DateTime" Precision="3" />
+          <Property Name="GSTR1_Auto_Population_Deletion_Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Error_In_Auto_Population_Deletion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Sales_Ledger_EWay_Bill">
+          <Key>
+            <PropertyRef Name="Unique_Value" />
+          </Key>
+          <Property Name="Unique_Value" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Request_Number" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="EWB_Number" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="EWB_Date" Type="DateTime" Precision="3" />
+          <Property Name="Date" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Month" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Year" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Supply_Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Doc_Number" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="Doc_Date" Type="DateTime" Precision="3" />
+          <Property Name="Doc_Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TO_GSTIN" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="No_of_Items" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Main_HSN_Code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Main_HSN_Desc" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Assessable_Value" Type="Decimal" Precision="16" Scale="2" />
+          <Property Name="SGST" Type="Decimal" Precision="16" Scale="2" />
+          <Property Name="CGST" Type="Decimal" Precision="16" Scale="2" />
+          <Property Name="Total_Invoice_Value" Type="Decimal" Precision="16" Scale="2" />
+          <Property Name="Valid_Till_Date" Type="DateTime" Precision="3" />
+          <Property Name="Gen_Mode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Client_Gstin" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="IGST" Type="Decimal" Precision="16" Scale="2" />
+          <Property Name="CESS" Type="Decimal" Precision="16" Scale="2" />
+        </EntityType>
+        <EntityType Name="Sales_Ledger_Ticket">
+          <Key>
+            <PropertyRef Name="Unique_Value" />
+          </Key>
+          <Property Name="Unique_Value" Type="String" Nullable="false" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="Request_Number" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Client_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CLient_Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Client_Gstin" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="Request_Created_Date" Type="DateTime" Precision="3" />
+          <Property Name="Request_Updated_Date" Type="DateTime" Precision="3" />
+          <Property Name="Request_Complete_Date" Type="DateTime" Precision="3" />
+          <Property Name="File_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="EInvoice_File_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="EWay_Bill_File_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Edit" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Financial_Year" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Period_Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Period" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Ticket_Status" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="SLComparedData">
+          <Key>
+            <PropertyRef Name="uni" />
+          </Key>
+          <Property Name="uni" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Unique_Value" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Client_Gstin" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="Request_Number" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="S_No" Type="Int32" />
+          <Property Name="Invoice_Number" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="Invoice_Date" Type="DateTime" Precision="3" />
+          <Property Name="Customer_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Customer_Gstin" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="Place_of_Supply" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Taxable_Amount" Type="Decimal" Precision="16" Scale="2" />
+          <Property Name="CGST" Type="Decimal" Precision="16" Scale="2" />
+          <Property Name="SGST" Type="Decimal" Precision="16" Scale="2" />
+          <Property Name="IGST" Type="Decimal" Precision="16" Scale="2" />
+          <Property Name="CESS" Type="Decimal" Precision="16" Scale="2" />
+          <Property Name="Total_Amount" Type="Decimal" Precision="16" Scale="2" />
+          <Property Name="GST_Rate" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Type_Of_Invoice" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Category" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DataSource" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Match_Type" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Compare" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Period" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Client_Api_datum">
+          <Key>
+            <PropertyRef Name="Client_Gstin" />
+          </Key>
+          <Property Name="Client_Gstin" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="API_IRIS_Username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="API_IRIS_Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Gst_Portal_Username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="NoticeData">
+          <Key>
+            <PropertyRef Name="Unique_Id" />
+          </Key>
+          <Property Name="Unique_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Request_Number" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Client_Gstin" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="Created_Datetime" Type="DateTime" Precision="3" />
+          <Property Name="Notice_Title" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Notice_Datetime" Type="DateTime" Precision="3" />
+          <Property Name="Priority" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Notice_Description" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="status" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="Client_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Closed_Datetime" Type="DateTime" Precision="3" />
+          <Property Name="FileName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="UpdatedDateTime" Type="DateTime" Precision="3" />
+          <Property Name="ClosedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="NoticeChat">
+          <Key>
+            <PropertyRef Name="Unique_Id" />
+          </Key>
+          <Property Name="Unique_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Request_Number" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Client_Gstin" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="Source" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Message" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Message_Datetime" Type="DateTime" Precision="3" />
+          <Property Name="IsRead" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="GSTR2_APIs_Data">
+          <Key>
+            <PropertyRef Name="Unique_ID" />
+          </Key>
+          <Property Name="Unique_ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Client_Gstin" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="Request_Number" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Session_ID" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Request_URL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Request_Parameters" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Request_Headers" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Request_Body" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Response" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Response_Code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Logged_Date_Time" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="Sales_Ledger_EInvoice_APIs_datum">
+          <Key>
+            <PropertyRef Name="Unique_ID" />
+          </Key>
+          <Property Name="Unique_ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Client_Gstin" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="Request_Number" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Session_ID" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Request_URL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Request_Parameters" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Request_Headers" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Request_Body" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Response" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Response_Code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Logged_Date_Time" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="Sales_Ledger_EWay_Bill_APIs_datum">
+          <Key>
+            <PropertyRef Name="Unique_ID" />
+          </Key>
+          <Property Name="Unique_ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Client_Gstin" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="Request_Number" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Session_ID" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Request_URL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Request_Parameters" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Request_Headers" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Request_Body" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Response" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Response_Code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Logged_Date_Time" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="GSTR2_Token_Data">
+          <Key>
+            <PropertyRef Name="uniqueId" />
+          </Key>
+          <Property Name="uniqueId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Client_Gstin" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="Request_Number" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="User_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="X_App_Key" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="OTP" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Auth_Token" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Auth_Token_Created_Datetime" Type="DateTime" Precision="3" />
+          <Property Name="Expiry" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SEK" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Sales_Ledger_Token_datum">
+          <Key>
+            <PropertyRef Name="uniqueId" />
+          </Key>
+          <Property Name="uniqueId" Type="Int64" Nullable="false" />
+          <Property Name="ClientGstin" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="RequestNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="EInvoiceAuthToken" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="EInvoiceAuthTokenCreatedDatetime" Type="DateTime" Precision="3" />
+          <Property Name="EInvoiceSek" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="EInvoiceTokenExpiry" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="UserValidUpto">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" />
+          <Property Name="UserEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UserGstin" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AccessFromDate" Type="DateTime" Precision="3" />
+          <Property Name="AccessToDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="PaymentDetail">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ClientName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ClientGstin" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="ClientEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ClientPhone" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="ClientAddress" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Amount" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Days" Type="Int32" />
+          <Property Name="OrderId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PaymentId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PaymentStatus" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="PaymentDate" Type="DateTime" Precision="3" />
+          <Property Name="TransactionId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="tjoeGSTModelStoreContainer" CdmEntityContainer="tjoeGSTEntities">
+          <EntitySetMapping Name="GSTR2_Header">
+            <EntityTypeMapping TypeName="tjoeGSTModel.GSTR2_Header">
+              <MappingFragment StoreEntitySet="GSTR2 Header">
+                <ScalarProperty Name="No_Edit" ColumnName="No Edit" />
+                <ScalarProperty Name="Ticket_Status" ColumnName="Ticket Status" />
+                <ScalarProperty Name="Txn_Period" ColumnName="Txn Period" />
+                <ScalarProperty Name="Request_Date" ColumnName="Request Date" />
+                <ScalarProperty Name="Request_No" ColumnName="Request No" />
+                <ScalarProperty Name="Client_GSTIN" ColumnName="Client GSTIN" />
+                <ScalarProperty Name="EXERT_ENTRY_DATE" ColumnName="EXERT_ENTRY_DATE" />
+                <ScalarProperty Name="EXERT_ENTITY_NAME" ColumnName="EXERT_ENTITY_NAME" />
+                <ScalarProperty Name="EXERT_ENTITY_CODE" ColumnName="EXERT_ENTITY_CODE" />
+                <ScalarProperty Name="EXERT_USER_NAME" ColumnName="EXERT_USER_NAME" />
+                <ScalarProperty Name="EXERT_USER_CODE" ColumnName="EXERT_USER_CODE" />
+                <ScalarProperty Name="EXERT_ROLL_NAME" ColumnName="EXERT_ROLL_NAME" />
+                <ScalarProperty Name="EXERT_ROLL_CODE" ColumnName="EXERT_ROLL_CODE" />
+                <ScalarProperty Name="EXERT_STATUS" ColumnName="EXERT_STATUS" />
+                <ScalarProperty Name="REF_EXERT_ID_COL" ColumnName="REF_EXERT_ID_COL" />
+                <ScalarProperty Name="EXERT_ID_COL" ColumnName="EXERT_ID_COL" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBL_PRD_USERS">
+            <EntityTypeMapping TypeName="tjoeGSTModel.TBL_PRD_USERS">
+              <MappingFragment StoreEntitySet="TBL_PRD_USERS">
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Last_Locked_Date1" ColumnName="Last Locked Date" />
+                <ScalarProperty Name="Failure_Count1" ColumnName="Failure Count" />
+                <ScalarProperty Name="Password_Changed" ColumnName="Password Changed" />
+                <ScalarProperty Name="Last_Locked_Date" ColumnName="Last_Locked_Date" />
+                <ScalarProperty Name="Failure_Count" ColumnName="Failure_Count" />
+                <ScalarProperty Name="ForgotPasswordToken" ColumnName="ForgotPasswordToken" />
+                <ScalarProperty Name="ExpiryTimeSpan" ColumnName="ExpiryTimeSpan" />
+                <ScalarProperty Name="LastPasswordSet" ColumnName="LastPasswordSet" />
+                <ScalarProperty Name="Department_HOD" ColumnName="Department HOD" />
+                <ScalarProperty Name="Mobile_PIN" ColumnName="Mobile PIN" />
+                <ScalarProperty Name="Full_Name" ColumnName="Full Name" />
+                <ScalarProperty Name="LkUpRowsPerPage" ColumnName="LkUpRowsPerPage" />
+                <ScalarProperty Name="RowsPerPage" ColumnName="RowsPerPage" />
+                <ScalarProperty Name="LoginAttempt" ColumnName="LoginAttempt" />
+                <ScalarProperty Name="Department" ColumnName="Department" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Type_" ColumnName="Type " />
+                <ScalarProperty Name="Currency" ColumnName="Currency" />
+                <ScalarProperty Name="Upper_Limit" ColumnName="Upper Limit" />
+                <ScalarProperty Name="Lower_Limit" ColumnName="Lower Limit" />
+                <ScalarProperty Name="Designation" ColumnName="Designation" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Entity_Name" ColumnName="Entity Name" />
+                <ScalarProperty Name="Entity_Code" ColumnName="Entity Code" />
+                <ScalarProperty Name="EXERT_ENTRY_DATE" ColumnName="EXERT_ENTRY_DATE" />
+                <ScalarProperty Name="Page_Layout_Type" ColumnName="Page Layout Type" />
+                <ScalarProperty Name="Default_page" ColumnName="Default page" />
+                <ScalarProperty Name="Confirm_Password" ColumnName="Confirm Password" />
+                <ScalarProperty Name="EXERT_ROLL_NAME" ColumnName="EXERT_ROLL_NAME" />
+                <ScalarProperty Name="EXERT_ROLL_CODE" ColumnName="EXERT_ROLL_CODE" />
+                <ScalarProperty Name="EXERT_USER_NAME" ColumnName="EXERT_USER_NAME" />
+                <ScalarProperty Name="EXERT_USER_CODE" ColumnName="EXERT_USER_CODE" />
+                <ScalarProperty Name="EXERT_ENTITY_NAME" ColumnName="EXERT_ENTITY_NAME" />
+                <ScalarProperty Name="EXERT_ENTITY_CODE" ColumnName="EXERT_ENTITY_CODE" />
+                <ScalarProperty Name="Themes" ColumnName="Themes" />
+                <ScalarProperty Name="LANGUAGE" ColumnName="LANGUAGE" />
+                <ScalarProperty Name="ROLE_NAME" ColumnName="ROLE NAME" />
+                <ScalarProperty Name="ROLE_CODE" ColumnName="ROLE CODE" />
+                <ScalarProperty Name="PASSWORD" ColumnName="PASSWORD" />
+                <ScalarProperty Name="USER_NAME" ColumnName="USER NAME" />
+                <ScalarProperty Name="USER_CODE" ColumnName="USER CODE" />
+                <ScalarProperty Name="EXERT_STATUS" ColumnName="EXERT_STATUS" />
+                <ScalarProperty Name="REF_EXERT_ID_COL" ColumnName="REF_EXERT_ID_COL" />
+                <ScalarProperty Name="EXERT_ID_COL" ColumnName="EXERT_ID_COL" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Purchase_Data">
+            <EntityTypeMapping TypeName="tjoeGSTModel.Purchase_datum">
+              <MappingFragment StoreEntitySet="Purchase Data">
+                <ScalarProperty Name="Modified" ColumnName="Modified" />
+                <ScalarProperty Name="Year" ColumnName="Year" />
+                <ScalarProperty Name="Month" ColumnName="Month" />
+                <ScalarProperty Name="Day" ColumnName="Day" />
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+                <ScalarProperty Name="CESS" ColumnName="CESS" />
+                <ScalarProperty Name="Integrated_Tax" ColumnName="Integrated Tax" />
+                <ScalarProperty Name="SGST" ColumnName="SGST" />
+                <ScalarProperty Name="CGST" ColumnName="CGST" />
+                <ScalarProperty Name="Taxable_Value" ColumnName="Taxable Value" />
+                <ScalarProperty Name="Invoice_Date" ColumnName="Invoice Date" />
+                <ScalarProperty Name="Invoiceno" ColumnName="Invoiceno" />
+                <ScalarProperty Name="Supplier_Name" ColumnName="Supplier Name" />
+                <ScalarProperty Name="Supplier_GSTIN" ColumnName="Supplier GSTIN" />
+                <ScalarProperty Name="Txn_Period" ColumnName="Txn Period" />
+                <ScalarProperty Name="Request_No" ColumnName="Request No" />
+                <ScalarProperty Name="Client_GSTIN" ColumnName="Client GSTIN" />
+                <ScalarProperty Name="EXERT_ENTRY_DATE" ColumnName="EXERT_ENTRY_DATE" />
+                <ScalarProperty Name="EXERT_ENTITY_NAME" ColumnName="EXERT_ENTITY_NAME" />
+                <ScalarProperty Name="EXERT_ENTITY_CODE" ColumnName="EXERT_ENTITY_CODE" />
+                <ScalarProperty Name="EXERT_USER_NAME" ColumnName="EXERT_USER_NAME" />
+                <ScalarProperty Name="EXERT_USER_CODE" ColumnName="EXERT_USER_CODE" />
+                <ScalarProperty Name="EXERT_ROLL_NAME" ColumnName="EXERT_ROLL_NAME" />
+                <ScalarProperty Name="EXERT_ROLL_CODE" ColumnName="EXERT_ROLL_CODE" />
+                <ScalarProperty Name="EXERT_STATUS" ColumnName="EXERT_STATUS" />
+                <ScalarProperty Name="REF_EXERT_ID_COL" ColumnName="REF_EXERT_ID_COL" />
+                <ScalarProperty Name="EXERT_ID_COL" ColumnName="EXERT_ID_COL" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GSTR2_Data">
+            <EntityTypeMapping TypeName="tjoeGSTModel.GSTR2_Data">
+              <MappingFragment StoreEntitySet="GSTR2 Data">
+                <ScalarProperty Name="Modified" ColumnName="Modified" />
+                <ScalarProperty Name="Year" ColumnName="Year" />
+                <ScalarProperty Name="Month" ColumnName="Month" />
+                <ScalarProperty Name="Day" ColumnName="Day" />
+                <ScalarProperty Name="Request_No" ColumnName="Request No" />
+                <ScalarProperty Name="Txn_Period" ColumnName="Txn Period" />
+                <ScalarProperty Name="IsReturnFiled" ColumnName="IsReturnFiled" />
+                <ScalarProperty Name="CESS" ColumnName="CESS" />
+                <ScalarProperty Name="SGST_Value" ColumnName="SGST Value" />
+                <ScalarProperty Name="CGST_Value" ColumnName="CGST Value" />
+                <ScalarProperty Name="IGST_Value" ColumnName="IGST Value" />
+                <ScalarProperty Name="GST_Rate" ColumnName="GST Rate" />
+                <ScalarProperty Name="Item_Taxable_Value" ColumnName="Item Taxable Value" />
+                <ScalarProperty Name="Invoice_Value" ColumnName="Invoice Value" />
+                <ScalarProperty Name="IsRCMApplied" ColumnName="IsRCMApplied" />
+                <ScalarProperty Name="Supplier_Invoice_Date" ColumnName="Supplier Invoice Date" />
+                <ScalarProperty Name="Supplier_Invoice_No" ColumnName="Supplier Invoice No" />
+                <ScalarProperty Name="Supplier_Name" ColumnName="Supplier Name" />
+                <ScalarProperty Name="Supplier_GSTIN" ColumnName="Supplier GSTIN" />
+                <ScalarProperty Name="GST_Reg_Type" ColumnName="GST Reg Type" />
+                <ScalarProperty Name="Client_GSTIN" ColumnName="Client GSTIN" />
+                <ScalarProperty Name="EXERT_ENTRY_DATE" ColumnName="EXERT_ENTRY_DATE" />
+                <ScalarProperty Name="EXERT_ENTITY_NAME" ColumnName="EXERT_ENTITY_NAME" />
+                <ScalarProperty Name="EXERT_ENTITY_CODE" ColumnName="EXERT_ENTITY_CODE" />
+                <ScalarProperty Name="EXERT_USER_NAME" ColumnName="EXERT_USER_NAME" />
+                <ScalarProperty Name="EXERT_USER_CODE" ColumnName="EXERT_USER_CODE" />
+                <ScalarProperty Name="EXERT_ROLL_NAME" ColumnName="EXERT_ROLL_NAME" />
+                <ScalarProperty Name="EXERT_ROLL_CODE" ColumnName="EXERT_ROLL_CODE" />
+                <ScalarProperty Name="EXERT_STATUS" ColumnName="EXERT_STATUS" />
+                <ScalarProperty Name="REF_EXERT_ID_COL" ColumnName="REF_EXERT_ID_COL" />
+                <ScalarProperty Name="EXERT_ID_COL" ColumnName="EXERT_ID_COL" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Purchase_Tickets">
+            <EntityTypeMapping TypeName="tjoeGSTModel.Purchase_Ticket">
+              <MappingFragment StoreEntitySet="Purchase Ticket">
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Admin_File_Name" ColumnName="Admin File Name" />
+                <ScalarProperty Name="File_Name" ColumnName="File Name" />
+                <ScalarProperty Name="Period_Type" ColumnName="Period Type" />
+                <ScalarProperty Name="Financial_Year" ColumnName="Financial Year" />
+                <ScalarProperty Name="Completed_Date" ColumnName="Completed Date" />
+                <ScalarProperty Name="No_Edit" ColumnName="No Edit" />
+                <ScalarProperty Name="Ticket_Status" ColumnName="Ticket Status" />
+                <ScalarProperty Name="Txn_Period" ColumnName="Txn Period" />
+                <ScalarProperty Name="Request_Created_Date" ColumnName="Request Created Date" />
+                <ScalarProperty Name="Request_Updated_Date" ColumnName="Request Updated Date" />
+                <ScalarProperty Name="Request_No" ColumnName="Request No" />
+                <ScalarProperty Name="Client_GSTIN" ColumnName="Client GSTIN" />
+                <ScalarProperty Name="EXERT_ENTRY_DATE" ColumnName="EXERT_ENTRY_DATE" />
+                <ScalarProperty Name="EXERT_ENTITY_NAME" ColumnName="EXERT_ENTITY_NAME" />
+                <ScalarProperty Name="EXERT_ENTITY_CODE" ColumnName="EXERT_ENTITY_CODE" />
+                <ScalarProperty Name="EXERT_USER_NAME" ColumnName="EXERT_USER_NAME" />
+                <ScalarProperty Name="EXERT_USER_CODE" ColumnName="EXERT_USER_CODE" />
+                <ScalarProperty Name="EXERT_ROLL_NAME" ColumnName="EXERT_ROLL_NAME" />
+                <ScalarProperty Name="EXERT_ROLL_CODE" ColumnName="EXERT_ROLL_CODE" />
+                <ScalarProperty Name="EXERT_STATUS" ColumnName="EXERT_STATUS" />
+                <ScalarProperty Name="REF_EXERT_ID_COL" ColumnName="REF_EXERT_ID_COL" />
+                <ScalarProperty Name="EXERT_ID_COL" ColumnName="EXERT_ID_COL" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GST_State_Codes">
+            <EntityTypeMapping TypeName="tjoeGSTModel.GST_State_Code">
+              <MappingFragment StoreEntitySet="GST State Codes">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AdminUsers">
+            <EntityTypeMapping TypeName="tjoeGSTModel.AdminUser">
+              <MappingFragment StoreEntitySet="AdminUser">
+                <ScalarProperty Name="Email" ColumnName="Email" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Admin_Clients">
+            <EntityTypeMapping TypeName="tjoeGSTModel.Admin_Clients">
+              <MappingFragment StoreEntitySet="Admin_Clients">
+                <ScalarProperty Name="ClientName" ColumnName="ClientName" />
+                <ScalarProperty Name="ToDate" ColumnName="ToDate" />
+                <ScalarProperty Name="FromDate" ColumnName="FromDate" />
+                <ScalarProperty Name="Client_GSTIN" ColumnName="Client GSTIN" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Unique_ID" ColumnName="Unique ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GSTCompareDatas">
+            <EntityTypeMapping TypeName="tjoeGSTModel.GSTCompareData">
+              <MappingFragment StoreEntitySet="GSTCompareData">
+                <ScalarProperty Name="Total_Tax" ColumnName="Total Tax" />
+                <ScalarProperty Name="CESS" ColumnName="CESS" />
+                <ScalarProperty Name="IGST" ColumnName="IGST" />
+                <ScalarProperty Name="SGST" ColumnName="SGST" />
+                <ScalarProperty Name="CGST" ColumnName="CGST" />
+                <ScalarProperty Name="Taxable_Value" ColumnName="Taxable Value" />
+                <ScalarProperty Name="Supplier_Name" ColumnName="Supplier Name" />
+                <ScalarProperty Name="Supplier_GSTIN" ColumnName="Supplier GSTIN" />
+                <ScalarProperty Name="Invoice_Date" ColumnName="Invoice Date" />
+                <ScalarProperty Name="Invoice_Number" ColumnName="Invoice Number" />
+                <ScalarProperty Name="Match_Type" ColumnName="Match Type" />
+                <ScalarProperty Name="Category" ColumnName="Category" />
+                <ScalarProperty Name="Matching_Results" ColumnName="Matching Results" />
+                <ScalarProperty Name="Period" ColumnName="Period" />
+                <ScalarProperty Name="Year_Month" ColumnName="Year Month" />
+                <ScalarProperty Name="Financial_Year" ColumnName="Financial Year" />
+                <ScalarProperty Name="Data_Source" ColumnName="Data Source" />
+                <ScalarProperty Name="Client_GSTIN" ColumnName="Client GSTIN" />
+                <ScalarProperty Name="Request_No" ColumnName="Request No" />
+                <ScalarProperty Name="Row_Number" ColumnName="Row Number" />
+                <ScalarProperty Name="unique_value" ColumnName="unique value" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ModifiedDatas">
+            <EntityTypeMapping TypeName="tjoeGSTModel.ModifiedData">
+              <MappingFragment StoreEntitySet="ModifiedData">
+                <ScalarProperty Name="Client_GSTIN" ColumnName="Client GSTIN" />
+                <ScalarProperty Name="Request_No" ColumnName="Request No" />
+                <ScalarProperty Name="Modified_DateTime" ColumnName="Modified DateTime" />
+                <ScalarProperty Name="Data_Source" ColumnName="Data Source" />
+                <ScalarProperty Name="Tax_Amount" ColumnName="Tax Amount" />
+                <ScalarProperty Name="Supplier_GSTIN" ColumnName="Supplier GSTIN" />
+                <ScalarProperty Name="Invoice_Date" ColumnName="Invoice Date" />
+                <ScalarProperty Name="Invoiceno" ColumnName="Invoiceno" />
+                <ScalarProperty Name="EXERT_ID_COL" ColumnName="EXERT_ID_COL" />
+                <ScalarProperty Name="S_No" ColumnName="S No" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sales_Ledger_Data">
+            <EntityTypeMapping TypeName="tjoeGSTModel.Sales_Ledger_datum">
+              <MappingFragment StoreEntitySet="Sales Ledger Data">
+                <ScalarProperty Name="IRN" ColumnName="IRN" />
+                <ScalarProperty Name="Client_GSTIN" ColumnName="Client GSTIN" />
+                <ScalarProperty Name="Type_Of_Invoice" ColumnName="Type Of Invoice" />
+                <ScalarProperty Name="Material_Description" ColumnName="Material Description" />
+                <ScalarProperty Name="Units" ColumnName="Units" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="HSN_SAC_Code" ColumnName="HSN SAC Code" />
+                <ScalarProperty Name="GST_Rate" ColumnName="GST Rate" />
+                <ScalarProperty Name="Total_Amount" ColumnName="Total Amount" />
+                <ScalarProperty Name="CGST" ColumnName="CGST" />
+                <ScalarProperty Name="SGST" ColumnName="SGST" />
+                <ScalarProperty Name="IGST" ColumnName="IGST" />
+                <ScalarProperty Name="CESS" ColumnName="CESS" />
+                <ScalarProperty Name="Taxable_Amount" ColumnName="Taxable Amount" />
+                <ScalarProperty Name="State_To_Supply" ColumnName="State To Supply" />
+                <ScalarProperty Name="Customer_GSTIN" ColumnName="Customer GSTIN" />
+                <ScalarProperty Name="Customer_Name" ColumnName="Customer Name" />
+                <ScalarProperty Name="Year" ColumnName="Year" />
+                <ScalarProperty Name="Month" ColumnName="Month" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Invoice_Date" ColumnName="Invoice Date" />
+                <ScalarProperty Name="Invoice_Number" ColumnName="Invoice Number" />
+                <ScalarProperty Name="Sno" ColumnName="Sno" />
+                <ScalarProperty Name="Request_Number" ColumnName="Request Number" />
+                <ScalarProperty Name="Unique_Value" ColumnName="Unique Value" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sales_Ledger_EInvoices">
+            <EntityTypeMapping TypeName="tjoeGSTModel.Sales_Ledger_EInvoice">
+              <MappingFragment StoreEntitySet="Sales Ledger EInvoice">
+                <ScalarProperty Name="Error_In_Auto_Population_Deletion" ColumnName="Error In Auto Population Deletion" />
+                <ScalarProperty Name="GSTR1_Auto_Population_Deletion_Status" ColumnName="GSTR1 Auto Population Deletion Status" />
+                <ScalarProperty Name="GSTR1_Auto_Population_Deletion_Date" ColumnName="GSTR1 Auto Population Deletion Date" />
+                <ScalarProperty Name="Applicable_Tax_Rate" ColumnName="Applicable Tax Rate" />
+                <ScalarProperty Name="Client_Gstin" ColumnName="Client Gstin" />
+                <ScalarProperty Name="Request_Number" ColumnName="Request Number" />
+                <ScalarProperty Name="E_invoice_status" ColumnName="E-invoice status" />
+                <ScalarProperty Name="IRN_Date" ColumnName="IRN Date" />
+                <ScalarProperty Name="IRN" ColumnName="IRN" />
+                <ScalarProperty Name="CESS" ColumnName="CESS" />
+                <ScalarProperty Name="SGST" ColumnName="SGST" />
+                <ScalarProperty Name="CGST" ColumnName="CGST" />
+                <ScalarProperty Name="IGST" ColumnName="IGST" />
+                <ScalarProperty Name="Taxable_Value" ColumnName="Taxable Value" />
+                <ScalarProperty Name="Tax_Rate" ColumnName="Tax Rate" />
+                <ScalarProperty Name="E_Commerce_GSTIN" ColumnName="E-Commerce GSTIN" />
+                <ScalarProperty Name="Invoice_Type" ColumnName="Invoice Type" />
+                <ScalarProperty Name="Reverse_Charge" ColumnName="Reverse Charge" />
+                <ScalarProperty Name="Place_Of_Supply" ColumnName="Place Of Supply" />
+                <ScalarProperty Name="Invoice_Value" ColumnName="Invoice Value" />
+                <ScalarProperty Name="Year" ColumnName="Year" />
+                <ScalarProperty Name="Month" ColumnName="Month" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Invoice_date" ColumnName="Invoice date" />
+                <ScalarProperty Name="Invoice_Number" ColumnName="Invoice Number" />
+                <ScalarProperty Name="Receiver_Name" ColumnName="Receiver Name" />
+                <ScalarProperty Name="Recipient_GSTIN" ColumnName="Recipient GSTIN" />
+                <ScalarProperty Name="Unique_Value" ColumnName="Unique Value" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sales_Ledger_EWay_Bills">
+            <EntityTypeMapping TypeName="tjoeGSTModel.Sales_Ledger_EWay_Bill">
+              <MappingFragment StoreEntitySet="Sales Ledger EWay Bill">
+                <ScalarProperty Name="CESS" ColumnName="CESS" />
+                <ScalarProperty Name="IGST" ColumnName="IGST" />
+                <ScalarProperty Name="Client_Gstin" ColumnName="Client Gstin" />
+                <ScalarProperty Name="Gen_Mode" ColumnName="Gen Mode" />
+                <ScalarProperty Name="Valid_Till_Date" ColumnName="Valid Till Date" />
+                <ScalarProperty Name="Total_Invoice_Value" ColumnName="Total Invoice Value" />
+                <ScalarProperty Name="CGST" ColumnName="CGST" />
+                <ScalarProperty Name="SGST" ColumnName="SGST" />
+                <ScalarProperty Name="Assessable_Value" ColumnName="Assessable Value" />
+                <ScalarProperty Name="Main_HSN_Desc" ColumnName="Main HSN Desc" />
+                <ScalarProperty Name="Main_HSN_Code" ColumnName="Main HSN Code" />
+                <ScalarProperty Name="No_of_Items" ColumnName="No of Items" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="TO_GSTIN" ColumnName="TO GSTIN" />
+                <ScalarProperty Name="Doc_Type" ColumnName="Doc Type" />
+                <ScalarProperty Name="Doc_Date" ColumnName="Doc Date" />
+                <ScalarProperty Name="Doc_Number" ColumnName="Doc Number" />
+                <ScalarProperty Name="Supply_Type" ColumnName="Supply Type" />
+                <ScalarProperty Name="Year" ColumnName="Year" />
+                <ScalarProperty Name="Month" ColumnName="Month" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="EWB_Date" ColumnName="EWB Date" />
+                <ScalarProperty Name="EWB_Number" ColumnName="EWB Number" />
+                <ScalarProperty Name="Request_Number" ColumnName="Request Number" />
+                <ScalarProperty Name="Unique_Value" ColumnName="Unique Value" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sales_Ledger_Tickets">
+            <EntityTypeMapping TypeName="tjoeGSTModel.Sales_Ledger_Ticket">
+              <MappingFragment StoreEntitySet="Sales Ledger Ticket">
+                <ScalarProperty Name="Ticket_Status" ColumnName="Ticket Status" />
+                <ScalarProperty Name="Period" ColumnName="Period" />
+                <ScalarProperty Name="Period_Type" ColumnName="Period Type" />
+                <ScalarProperty Name="Financial_Year" ColumnName="Financial Year" />
+                <ScalarProperty Name="Edit" ColumnName="Edit" />
+                <ScalarProperty Name="EWay_Bill_File_Name" ColumnName="EWay Bill File Name" />
+                <ScalarProperty Name="EInvoice_File_Name" ColumnName="EInvoice File Name" />
+                <ScalarProperty Name="File_Name" ColumnName="File Name" />
+                <ScalarProperty Name="Request_Complete_Date" ColumnName="Request Complete Date" />
+                <ScalarProperty Name="Request_Updated_Date" ColumnName="Request Updated Date" />
+                <ScalarProperty Name="Request_Created_Date" ColumnName="Request Created Date" />
+                <ScalarProperty Name="Client_Gstin" ColumnName="Client Gstin" />
+                <ScalarProperty Name="CLient_Email" ColumnName="CLient Email" />
+                <ScalarProperty Name="Client_Name" ColumnName="Client Name" />
+                <ScalarProperty Name="Request_Number" ColumnName="Request Number" />
+                <ScalarProperty Name="Unique_Value" ColumnName="Unique Value" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SLComparedDatas">
+            <EntityTypeMapping TypeName="tjoeGSTModel.SLComparedData">
+              <MappingFragment StoreEntitySet="SLComparedData">
+                <ScalarProperty Name="Period" ColumnName="Period" />
+                <ScalarProperty Name="Compare" ColumnName="Compare" />
+                <ScalarProperty Name="Match_Type" ColumnName="Match Type" />
+                <ScalarProperty Name="DataSource" ColumnName="DataSource" />
+                <ScalarProperty Name="Category" ColumnName="Category" />
+                <ScalarProperty Name="Type_Of_Invoice" ColumnName="Type Of Invoice" />
+                <ScalarProperty Name="GST_Rate" ColumnName="GST Rate" />
+                <ScalarProperty Name="Total_Amount" ColumnName="Total Amount" />
+                <ScalarProperty Name="CESS" ColumnName="CESS" />
+                <ScalarProperty Name="IGST" ColumnName="IGST" />
+                <ScalarProperty Name="SGST" ColumnName="SGST" />
+                <ScalarProperty Name="CGST" ColumnName="CGST" />
+                <ScalarProperty Name="Taxable_Amount" ColumnName="Taxable Amount" />
+                <ScalarProperty Name="Place_of_Supply" ColumnName="Place of Supply" />
+                <ScalarProperty Name="Customer_Gstin" ColumnName="Customer Gstin" />
+                <ScalarProperty Name="Customer_Name" ColumnName="Customer Name" />
+                <ScalarProperty Name="Invoice_Date" ColumnName="Invoice Date" />
+                <ScalarProperty Name="Invoice_Number" ColumnName="Invoice Number" />
+                <ScalarProperty Name="S_No" ColumnName="S No" />
+                <ScalarProperty Name="Request_Number" ColumnName="Request Number" />
+                <ScalarProperty Name="Client_Gstin" ColumnName="Client Gstin" />
+                <ScalarProperty Name="Unique_Value" ColumnName="Unique Value" />
+                <ScalarProperty Name="uni" ColumnName="uni" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Client_Api_Data">
+            <EntityTypeMapping TypeName="tjoeGSTModel.Client_Api_datum">
+              <MappingFragment StoreEntitySet="Client Api Data">
+                <ScalarProperty Name="Gst_Portal_Username" ColumnName="Gst Portal Username" />
+                <ScalarProperty Name="API_IRIS_Password" ColumnName="API IRIS Password" />
+                <ScalarProperty Name="API_IRIS_Username" ColumnName="API IRIS Username" />
+                <ScalarProperty Name="Client_Gstin" ColumnName="Client Gstin" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NoticeDatas">
+            <EntityTypeMapping TypeName="tjoeGSTModel.NoticeData">
+              <MappingFragment StoreEntitySet="NoticeData">
+                <ScalarProperty Name="ClosedBy" ColumnName="ClosedBy" />
+                <ScalarProperty Name="UpdatedDateTime" ColumnName="UpdatedDateTime" />
+                <ScalarProperty Name="FileName" ColumnName="FileName" />
+                <ScalarProperty Name="Closed_Datetime" ColumnName="Closed Datetime" />
+                <ScalarProperty Name="Client_Name" ColumnName="Client Name" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="Notice_Description" ColumnName="Notice Description" />
+                <ScalarProperty Name="Priority" ColumnName="Priority" />
+                <ScalarProperty Name="Notice_Datetime" ColumnName="Notice Datetime" />
+                <ScalarProperty Name="Notice_Title" ColumnName="Notice Title" />
+                <ScalarProperty Name="Created_Datetime" ColumnName="Created Datetime" />
+                <ScalarProperty Name="Client_Gstin" ColumnName="Client Gstin" />
+                <ScalarProperty Name="Request_Number" ColumnName="Request Number" />
+                <ScalarProperty Name="Unique_Id" ColumnName="Unique Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NoticeChats">
+            <EntityTypeMapping TypeName="tjoeGSTModel.NoticeChat">
+              <MappingFragment StoreEntitySet="NoticeChat">
+                <ScalarProperty Name="IsRead" ColumnName="IsRead" />
+                <ScalarProperty Name="Message_Datetime" ColumnName="Message Datetime" />
+                <ScalarProperty Name="Message" ColumnName="Message" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Source" ColumnName="Source" />
+                <ScalarProperty Name="Client_Gstin" ColumnName="Client Gstin" />
+                <ScalarProperty Name="Request_Number" ColumnName="Request Number" />
+                <ScalarProperty Name="Unique_Id" ColumnName="Unique Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GSTR2_APIs_Data">
+            <EntityTypeMapping TypeName="tjoeGSTModel.GSTR2_APIs_Data">
+              <MappingFragment StoreEntitySet="GSTR2 APIs Data">
+                <ScalarProperty Name="Logged_Date_Time" ColumnName="Logged Date Time" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Response_Code" ColumnName="Response Code" />
+                <ScalarProperty Name="Response" ColumnName="Response" />
+                <ScalarProperty Name="Request_Body" ColumnName="Request Body" />
+                <ScalarProperty Name="Request_Headers" ColumnName="Request Headers" />
+                <ScalarProperty Name="Request_Parameters" ColumnName="Request Parameters" />
+                <ScalarProperty Name="Request_URL" ColumnName="Request URL" />
+                <ScalarProperty Name="Session_ID" ColumnName="Session ID" />
+                <ScalarProperty Name="Request_Number" ColumnName="Request Number" />
+                <ScalarProperty Name="Client_Gstin" ColumnName="Client Gstin" />
+                <ScalarProperty Name="Unique_ID" ColumnName="Unique ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sales_Ledger_EInvoice_APIs_Data">
+            <EntityTypeMapping TypeName="tjoeGSTModel.Sales_Ledger_EInvoice_APIs_datum">
+              <MappingFragment StoreEntitySet="Sales Ledger EInvoice APIs Data">
+                <ScalarProperty Name="Logged_Date_Time" ColumnName="Logged Date Time" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Response_Code" ColumnName="Response Code" />
+                <ScalarProperty Name="Response" ColumnName="Response" />
+                <ScalarProperty Name="Request_Body" ColumnName="Request Body" />
+                <ScalarProperty Name="Request_Headers" ColumnName="Request Headers" />
+                <ScalarProperty Name="Request_Parameters" ColumnName="Request Parameters" />
+                <ScalarProperty Name="Request_URL" ColumnName="Request URL" />
+                <ScalarProperty Name="Session_ID" ColumnName="Session ID" />
+                <ScalarProperty Name="Request_Number" ColumnName="Request Number" />
+                <ScalarProperty Name="Client_Gstin" ColumnName="Client Gstin" />
+                <ScalarProperty Name="Unique_ID" ColumnName="Unique ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sales_Ledger_EWay_Bill_APIs_Data">
+            <EntityTypeMapping TypeName="tjoeGSTModel.Sales_Ledger_EWay_Bill_APIs_datum">
+              <MappingFragment StoreEntitySet="Sales Ledger EWay Bill APIs Data">
+                <ScalarProperty Name="Logged_Date_Time" ColumnName="Logged Date Time" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Response_Code" ColumnName="Response Code" />
+                <ScalarProperty Name="Response" ColumnName="Response" />
+                <ScalarProperty Name="Request_Body" ColumnName="Request Body" />
+                <ScalarProperty Name="Request_Headers" ColumnName="Request Headers" />
+                <ScalarProperty Name="Request_Parameters" ColumnName="Request Parameters" />
+                <ScalarProperty Name="Request_URL" ColumnName="Request URL" />
+                <ScalarProperty Name="Session_ID" ColumnName="Session ID" />
+                <ScalarProperty Name="Request_Number" ColumnName="Request Number" />
+                <ScalarProperty Name="Client_Gstin" ColumnName="Client Gstin" />
+                <ScalarProperty Name="Unique_ID" ColumnName="Unique ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GSTR2_Token_Data">
+            <EntityTypeMapping TypeName="tjoeGSTModel.GSTR2_Token_Data">
+              <MappingFragment StoreEntitySet="GSTR2 Token Data">
+                <ScalarProperty Name="SEK" ColumnName="SEK" />
+                <ScalarProperty Name="Expiry" ColumnName="Expiry" />
+                <ScalarProperty Name="Auth_Token_Created_Datetime" ColumnName="Auth Token Created Datetime" />
+                <ScalarProperty Name="Auth_Token" ColumnName="Auth Token" />
+                <ScalarProperty Name="OTP" ColumnName="OTP" />
+                <ScalarProperty Name="X_App_Key" ColumnName="X App Key" />
+                <ScalarProperty Name="User_Name" ColumnName="User Name" />
+                <ScalarProperty Name="Request_Number" ColumnName="Request Number" />
+                <ScalarProperty Name="Client_Gstin" ColumnName="Client Gstin" />
+                <ScalarProperty Name="uniqueId" ColumnName="uniqueId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sales_Ledger_Token_Data">
+            <EntityTypeMapping TypeName="tjoeGSTModel.Sales_Ledger_Token_datum">
+              <MappingFragment StoreEntitySet="Sales Ledger Token Data">
+                <ScalarProperty Name="EInvoiceTokenExpiry" ColumnName="EInvoiceTokenExpiry" />
+                <ScalarProperty Name="EInvoiceSek" ColumnName="EInvoiceSek" />
+                <ScalarProperty Name="EInvoiceAuthTokenCreatedDatetime" ColumnName="EInvoiceAuthTokenCreatedDatetime" />
+                <ScalarProperty Name="EInvoiceAuthToken" ColumnName="EInvoiceAuthToken" />
+                <ScalarProperty Name="RequestNumber" ColumnName="RequestNumber" />
+                <ScalarProperty Name="ClientGstin" ColumnName="ClientGstin" />
+                <ScalarProperty Name="uniqueId" ColumnName="uniqueId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserValidUptoes">
+            <EntityTypeMapping TypeName="tjoeGSTModel.UserValidUpto">
+              <MappingFragment StoreEntitySet="UserValidUpto">
+                <ScalarProperty Name="AccessToDate" ColumnName="AccessToDate" />
+                <ScalarProperty Name="AccessFromDate" ColumnName="AccessFromDate" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="UserGstin" ColumnName="UserGstin" />
+                <ScalarProperty Name="UserEmail" ColumnName="UserEmail" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PaymentDetails">
+            <EntityTypeMapping TypeName="tjoeGSTModel.PaymentDetail">
+              <MappingFragment StoreEntitySet="PaymentDetails">
+                <ScalarProperty Name="TransactionId" ColumnName="TransactionId" />
+                <ScalarProperty Name="PaymentDate" ColumnName="PaymentDate" />
+                <ScalarProperty Name="PaymentStatus" ColumnName="PaymentStatus" />
+                <ScalarProperty Name="PaymentId" ColumnName="PaymentId" />
+                <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+                <ScalarProperty Name="Days" ColumnName="Days" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="ClientAddress" ColumnName="ClientAddress" />
+                <ScalarProperty Name="ClientPhone" ColumnName="ClientPhone" />
+                <ScalarProperty Name="ClientEmail" ColumnName="ClientEmail" />
+                <ScalarProperty Name="ClientGstin" ColumnName="ClientGstin" />
+                <ScalarProperty Name="ClientName" ColumnName="ClientName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
