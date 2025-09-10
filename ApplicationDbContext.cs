@@ -23,7 +23,8 @@ namespace CAF.GstMatching
         public DbSet<Admin_Clients> Admin_Clients { get; set; }
         public DbSet<UserValidUpto> UserValidUptoes { get; set; }
         public DbSet<PaymentDetail> PaymentDetails { get; set; }
-
+        public DbSet<MenuItem> MenuItems { get; set; }
+        public DbSet<UserLoginHistory> UserLoginHistories { get; set; }
 
 
         public DbSet<Purchase_datum> Purchase_Data { get; set; } // Ensure this matches your table
