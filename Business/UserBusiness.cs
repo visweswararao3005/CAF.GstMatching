@@ -97,6 +97,27 @@ namespace CAF.GstMatching.Business
             return await _userHelper.GetPaymentDetails(orderId, clientEmail, clientGstin);
         }
 
+        public async Task saveMenuItemsDetails(MenuItemsModel MenuItemsDetails)
+        {
+            await _userHelper.saveMenuItemsDetails(MenuItemsDetails);
+        }
+        public async Task<MenuItemsModel> getMenuItemsDetails(string userEmail)
+        {
+            return await _userHelper.getMenuItemsDetails(userEmail);
+        }
+        public async Task UpdatePasswordToYes(string userEmail)
+        {
+            await _userHelper.UpdatePasswordToYes(userEmail);
+        }
+
+        public async Task SaveUserLoginHistory(UserLoginHistoryModel loginHistory)
+        {
+            await _userHelper.SaveUserLoginHistory(loginHistory);
+        }
+        public async Task UpdateUserLogoutTime(string email, string gstin)
+        {
+            await _userHelper.UpdateUserLogoutTime(email, gstin);
+        }
 
     }
 }

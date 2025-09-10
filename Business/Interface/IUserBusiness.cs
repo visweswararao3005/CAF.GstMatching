@@ -32,5 +32,14 @@ namespace CAF.GstMatching.Business.Interface
 
         Task savePaymentDetails(PaymentDetailModel paymentDetails);
         Task<PaymentDetailModel> GetPaymentDetails(string orderId, string clientEmail, string clientGstin);
+
+        Task saveMenuItemsDetails(MenuItemsModel MenuItemsDetails);
+        Task<MenuItemsModel> getMenuItemsDetails(string userEmail);
+
+        Task UpdatePasswordToYes(string userEmail);
+
+        Task SaveUserLoginHistory(UserLoginHistoryModel loginHistory);
+        Task UpdateUserLogoutTime(string email, string gstin);
+
     }
 }

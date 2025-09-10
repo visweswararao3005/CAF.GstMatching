@@ -443,5 +443,73 @@ namespace CAF.GstMatching.Helper
             return paymentDetails;
         }
 
+        public async Task saveMenuItemsDetails(MenuItemsModel MenuItemsDetails)
+        {
+            var menuItemsDetails = new MenuItem
+            {
+                Email = MenuItemsDetails.email,
+                UserGstin = MenuItemsDetails.userGstin,
+                UserName = MenuItemsDetails.userName,
+                AllowIrisMenuItems = MenuItemsDetails.allowIrisMenuItems,
+                AllowMasterMenuItems = MenuItemsDetails.allowMasterMenuItems,
+            };
+            _context.MenuItems.Add(menuItemsDetails);
+            await _context.SaveChangesAsync();
+        }
+        public async Task<MenuItemsModel> getMenuItemsDetails(string userEmail)
+        {
+            var menuItemsDetails = await _context.MenuItems
+                    .Where(u => u.Email == userEmail)
+                    .OrderByDescending(u => u.Id)
+                    .Select(p => new MenuItemsModel
+                    {
+                        email = p.Email,
+                        userGstin = p.UserGstin,
+                        userName = p.UserName,
+                        allowMasterMenuItems = p.AllowMasterMenuItems,
+                        allowIrisMenuItems = p.AllowIrisMenuItems
+                    })
+                    .FirstOrDefaultAsync(); // Only the latest record
+
+            return menuItemsDetails;
+        }
+
+        public async Task UpdatePasswordToYes(string userEmail)
+        {
+            await _context.Database.ExecuteSqlCommandAsync(
+                "UPDATE TBL_PRD_USERS SET [Password Changed] = {0} WHERE Email = {1}",
+                "Yes",
+                userEmail);
+        }
+
+        public async Task SaveUserLoginHistory(UserLoginHistoryModel loginHistory)
+        {
+            var newLogin = new UserLoginHistory
+            {
+                Email = loginHistory.email,
+                GSTIN = loginHistory.gstin,
+                UserName = loginHistory.userName,
+                SessionId = loginHistory.sessionId,
+                LoginDateTime = loginHistory.loginDateTime,
+                LogoutDateTime = null
+            };
+
+            _context.UserLoginHistories.Add(newLogin);
+            await _context.SaveChangesAsync();
+        }
+        public async Task UpdateUserLogoutTime(string email, string gstin)
+        {
+            var loginRecord = await _context.UserLoginHistories
+                                .Where(x => x.Email == email && x.GSTIN == gstin)
+                                .OrderByDescending(x => x.Id)
+                                .FirstOrDefaultAsync();
+
+            if (loginRecord != null && loginRecord.LogoutDateTime == null)
+            {
+                loginRecord.LogoutDateTime = DateTime.Now;
+                await _context.SaveChangesAsync();
+            }
+        }
+
     }
 }
